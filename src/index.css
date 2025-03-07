@@ -17,3 +17,22 @@ body {
     overflow-x: hidden;
     background-color: #141414;
 }
+
+@layer components  {
+    .button-text {
+        @apply text-[1.4rem] font-medium leading-[1.5rem] text-white
+    }
+
+    .result-container {
+        @apply flex flex-col items-center justify-center gap-[0.5rem] w-full h-[9.1rem] rounded-[0.8rem] bg-[#1a1a1a] 
+        border-solid border-[0.1rem] border-[#1a1a1a]
+    }
+
+    .people-amount {
+        @apply text-[2.4rem] font-bold leading-[1.5rem] text-white
+    }
+
+    .result {
+        @apply text-[1.6rem] font-medium leading-[1.5] text-[#999]
+    }
+}
