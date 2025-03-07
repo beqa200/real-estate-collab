@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5% !important;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #141414;
+}
