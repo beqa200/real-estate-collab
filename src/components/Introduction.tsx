@@ -1,5 +1,5 @@
-import IntroductionImg from "../images/introduction/introduction.png";
-import RountAd from "../images/Introduction/round-ad.png";
+import IntroductionImg from "../images/home/introduction.png";
+import RountAd from "../images/home/round-ad.png";
 
 const Introduction: React.FC = () => {
   return (
