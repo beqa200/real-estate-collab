@@ -12,10 +12,8 @@ const Introduction: React.FC = () => {
       </div>
       <div className="mt-[5.6rem]">
         <div>
-          <h1 className="text-[2.8rem] font-semibold leading-[1.2] text-white">
-            Discover Your Dream Property with Estatein
-          </h1>
-          <p className="text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem]">
+          <h1 className="title">Discover Your Dream Property with Estatein</h1>
+          <p className="about">
             Your journey to finding the perfect property begins here. Explore
             our listings to find the home that matches your dreams.
           </p>

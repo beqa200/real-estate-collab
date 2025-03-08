@@ -18,9 +18,21 @@ body {
     background-color: #141414;
 }
 
+.line {
+    position: relative;
+}
+
 @layer components  {
     .button-text {
         @apply text-[1.4rem] font-medium leading-[1.5rem] text-white
+    }
+
+    .title {
+        @apply text-[2.8rem] font-semibold leading-[1.2] text-white
+    }
+
+    .about {
+        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem]
     }
 
     .result-container {
@@ -52,5 +64,19 @@ body {
 
     .arrow {
         @apply absolute top-[2.5rem] right-[2.4rem]
+    }
+
+    .feature-container {
+        @apply w-[12.3rem] h-[3.3rem] flex justify-center items-center gap-[0.4rem] bg-[#1a1a1a] rounded-[28px] 
+        border-1 border-[#262626]
+    }
+
+    .feature-text {
+        @apply text-[1.4rem] font-medium leading-[1.5] text-[#fff]
+    }
+
+    .arrow-container {
+        @apply w-[4.4rem] h-[4.4rem] rounded-[69px] bg-[#1a1a1a] border-1 border-[#262626]
+        flex justify-center items-center
     }
 }
