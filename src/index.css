@@ -79,4 +79,13 @@ body {
         @apply w-[4.4rem] h-[4.4rem] rounded-[69px] bg-[#1a1a1a] border-1 border-[#262626]
         flex justify-center items-center
     }
+
+    .after-box {
+        @apply flex justify-between border-t-1 border-t-[#262626] py-[1.6rem] mt-[3rem]
+    }
+
+    .after-box-btn {
+        @apply w-[15.5rem] py-[1.4rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626] 
+        text-[1.4rem] font-semibold leading-[1.5] text-white
+    }
 }

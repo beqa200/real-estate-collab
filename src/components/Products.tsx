@@ -2,15 +2,16 @@ import TemporaryImg from "../images/home/introduction.png";
 import BedroomImg from "../images/home/bedroom.png";
 import BathroomImg from "../images/home/bathroom.png";
 import BuildingImg from "../images/home/building.png";
-// import Stars from "../images/home/stars.png";
-import LeftArrow from "../images/home/arrow-left.png";
-import RightArrow from "../images/home/arrow-right.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 
 import "swiper/swiper-bundle.css";
 
-const Products: React.FC<{ stars: string }> = ({ stars }) => {
+const Products: React.FC<{
+  stars: string;
+  leftArrow: string;
+  rightArrow: string;
+}> = ({ stars, leftArrow, rightArrow }) => {
   const swiperRef: any = useRef(null);
 
   return (
@@ -145,20 +146,15 @@ const Products: React.FC<{ stars: string }> = ({ stars }) => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <div className="flex justify-between border-t-1 border-t-[#262626] py-[1.6rem] mt-[3rem]">
-        <button
-          className="w-[15.5rem] py-[1.4rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626] 
-                   text-[1.4rem] font-semibold leading-[1.5] text-white"
-        >
-          View All Properties
-        </button>
+      <div className="after-box">
+        <button className="after-box-btn">View All Properties</button>
         <div>
           <div className="flex items-baseline gap-[1rem]">
             <div
               className="arrow-container"
               onClick={() => swiperRef.current?.slidePrev()}
             >
-              <img src={LeftArrow} alt="Left arrow" />
+              <img src={leftArrow} alt="Left arrow" />
             </div>
             <p className="about">
               <span className="text-white">01</span> of <span>60</span>
@@ -167,7 +163,7 @@ const Products: React.FC<{ stars: string }> = ({ stars }) => {
               className="arrow-container"
               onClick={() => swiperRef.current?.slideNext()}
             >
-              <img src={RightArrow} alt="right arrow" />
+              <img src={rightArrow} alt="right arrow" />
             </div>
           </div>
         </div>
