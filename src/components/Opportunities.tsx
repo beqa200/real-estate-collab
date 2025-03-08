@@ -6,26 +6,28 @@ import Arrow from "../images/home/arrow.png";
 
 const Opportunities: React.FC = () => {
   return (
-    <div>
-      <div>
+    <div className="opportunities-container">
+      <div className="opportunity-container ">
         <img src={FirstOpportunityIcon} alt="Home" />
-        <p>Find Your Dream Home</p>
-        <img src={Arrow} />
+        <p className="opportunity-text">Find Your Dream Home</p>
+        <img src={Arrow} className="arrow" />
       </div>
-      <div>
+      <div className="opportunity-container ">
         <img src={SecondOpportunityIcon} alt="Photographer" />
-        <p>Unlock Property Value</p>
-        <img src={Arrow} />
+        <p className="opportunity-text">Unlock Property Value</p>
+        <img src={Arrow} className="arrow" />
       </div>
-      <div>
+      <div className="opportunity-container ">
         <img src={ThirdOpportunityIcon} alt="Managment" />
-        <p>Effortless Property Management</p>
-        <img src={Arrow} />
+        <p className="opportunity-text">Effortless Property Management</p>
+        <img src={Arrow} className="arrow" />
       </div>
-      <div>
+      <div className="opportunity-container ">
         <img src={FourthOpportunityIcon} alt="Sun" />
-        <p>Smart Investments, Informed Decisions</p>
-        <img src={Arrow} />
+        <p className="opportunity-text">
+          Smart Investments, Informed Decisions
+        </p>
+        <img src={Arrow} className="arrow" />
       </div>
     </div>
   );

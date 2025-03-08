@@ -35,4 +35,22 @@ body {
     .result {
         @apply text-[1.6rem] font-medium leading-[1.5] text-[#999]
     }
+
+    .opportunities-container {
+        @apply w-[95.5%] flex flex-wrap justify-center gap-[1rem] p-[1rem] rounded-[1.2rem] bg-[#141414] 
+        border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem]
+    }
+
+    .opportunity-container {
+        @apply w-[48%] h-[14.4rem] flex flex-col items-center pt-[2rem] px-[1.4rem] gap-[1.4rem] rounded-[1rem]
+        border-1 border-[#262626] bg-[#1a1a1a] relative
+    }
+
+    .opportunity-text {
+        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center
+    }
+
+    .arrow {
+        @apply absolute top-[2.5rem] right-[2.4rem]
+    }
 }
