@@ -33,7 +33,10 @@ export default function Header() {
         <div className="bg-[#1A1A1A] relative">
             <div className="flex py-10 items-center justify-between lg:justify-around mx-10">
                 <div>
-                    <img className="w-[100px] cursor-pointer" src={logo || "/placeholder.svg"} alt="Logo of the company" />
+                    <Link to={'/'}>
+                        <img className="w-[100px] cursor-pointer" src={logo || "/placeholder.svg"} alt="Logo of the company" />
+
+                    </Link>
                 </div>
 
                 {!open && (
