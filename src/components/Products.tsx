@@ -6,11 +6,13 @@ import Stars from "../images/home/stars.png";
 import LeftArrow from "../images/home/arrow-left.png";
 import RightArrow from "../images/home/arrow-right.png";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import { useRef } from "react";
 
 import "swiper/swiper-bundle.css";
 
 const Products: React.FC = () => {
+  const swiperRef: any = useRef(null);
+
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem]">
       <img src={Stars} alt="Stars" />
@@ -20,7 +22,11 @@ const Products: React.FC = () => {
         offers a glimpse into exceptional homes and investments available
         through Estatein.
       </p>
-      <Swiper slidesPerView={1} spaceBetween={50}>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={50}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+      >
         <SwiperSlide>
           <div className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]">
             <img src={TemporaryImg} alt="Home" />
@@ -148,13 +154,19 @@ const Products: React.FC = () => {
         </button>
         <div>
           <div className="flex items-baseline gap-[1rem]">
-            <div className="arrow-container">
+            <div
+              className="arrow-container"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
               <img src={LeftArrow} alt="Left arrow" />
             </div>
             <p className="about">
               <span className="text-white">01</span> of <span>60</span>
             </p>
-            <div className="arrow-container">
+            <div
+              className="arrow-container"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
               <img src={RightArrow} alt="right arrow" />
             </div>
           </div>
