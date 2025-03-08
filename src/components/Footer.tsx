@@ -80,19 +80,19 @@ export default function Footer() {
                 </div>
 
             </div>
-            <div className='bg-gray-500 flex justify-between px-10 lg:flex-row-reverse flex-col items-center '>
-                <div className='flex items-center justify-center gap-4 py-10'>
+            <div className='bg-gray-500 flex w-full  justify-between px-10 lg:flex-row-reverse flex-col items-center '>
+                <div className='flex items-center  justify-center gap-4 py-10'>
                     <div className='bg-[#141414] max-w-max px-4 rounded-full py-4 '>
-                        <Facebook className='text-white' />
+                        <Facebook className='text-white cursor-pointer ' />
                     </div>
                     <div className='bg-[#141414] max-w-max px-4 rounded-full py-4 '>
-                        <Linkedin className='text-white' />
+                        <Linkedin className='text-white cursor-pointer ' />
                     </div>
                     <div className='bg-[#141414] max-w-max px-4 rounded-full py-4 '>
-                        <Twitter className='text-white' />
+                        <Twitter className='text-white cursor-pointer ' />
                     </div>
                     <div className='bg-[#141414] max-w-max px-4 rounded-full py-4 '>
-                        <Youtube className='text-white' />
+                        <Youtube className='text-white cursor-pointer ' />
                     </div>
                 </div>
                 <div className='text-white lg:transform lg:translate-y-6 flex  flex-col lg:flex-row gap-8 items-center pb-10'>
