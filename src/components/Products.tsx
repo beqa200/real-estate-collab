@@ -2,7 +2,7 @@ import TemporaryImg from "../images/home/introduction.png";
 import BedroomImg from "../images/home/bedroom.png";
 import BathroomImg from "../images/home/bathroom.png";
 import BuildingImg from "../images/home/building.png";
-import Stars from "../images/home/stars.png";
+// import Stars from "../images/home/stars.png";
 import LeftArrow from "../images/home/arrow-left.png";
 import RightArrow from "../images/home/arrow-right.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,12 +10,12 @@ import { useRef } from "react";
 
 import "swiper/swiper-bundle.css";
 
-const Products: React.FC = () => {
+const Products: React.FC<{ stars: string }> = ({ stars }) => {
   const swiperRef: any = useRef(null);
 
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem]">
-      <img src={Stars} alt="Stars" />
+      <img src={stars} alt="Stars" />
       <h3 className="title">Featured Properties</h3>
       <p className="about mt-[0.6rem]">
         Explore our handpicked selection of featured properties. Each listing
