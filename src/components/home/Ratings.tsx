@@ -1,5 +1,5 @@
-import Star from "../images/home/star.png";
-import Customer from "../images/home/profile-picture.png";
+import Star from "../../images/home/star.png";
+import Customer from "../../images/home/profile-picture.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 

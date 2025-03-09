@@ -1,7 +1,7 @@
-import TemporaryImg from "../images/home/introduction.png";
-import BedroomImg from "../images/home/bedroom.png";
-import BathroomImg from "../images/home/bathroom.png";
-import BuildingImg from "../images/home/building.png";
+import TemporaryImg from "../../images/home/introduction.png";
+import BedroomImg from "../../images/home/bedroom.png";
+import BathroomImg from "../../images/home/bathroom.png";
+import BuildingImg from "../../images/home/building.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 
