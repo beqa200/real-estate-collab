@@ -24,7 +24,7 @@ export default function Footer() {
 
 
                 </div>
-                <div className='flex  mt-10 ml-5 gap-32 items-center'>
+                <div className='flex  mt-10 ml-5 gap-32  items-center'>
                     <div>
                         <h3 className='text-[#999999] mb-5 text-[18px]'>Home</h3>
                         <ul className='text-white flex flex-col items-start gap-5 text-[16px]'>
@@ -80,7 +80,7 @@ export default function Footer() {
                 </div>
 
             </div>
-            <div className='bg-gray-500 flex w-full  justify-between px-10 lg:flex-row-reverse flex-col items-center '>
+            <div className='bg-[#1A1A1A] flex w-full  justify-between px-10 lg:flex-row-reverse flex-col items-center '>
                 <div className='flex items-center  justify-center gap-4 py-10'>
                     <div className='bg-[#141414] max-w-max px-4 rounded-full py-4 '>
                         <Facebook className='text-white cursor-pointer ' />
