@@ -14,7 +14,7 @@ const Home: React.FC = () => {
       <Opportunities />
       <Products stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
       <Ratings stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
-      <Faq stars={Stars} />
+      <Faq stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
     </>
   );
 };

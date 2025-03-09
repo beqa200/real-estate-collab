@@ -1,4 +1,8 @@
-const Faq: React.FC<{ stars: string }> = ({ stars }) => {
+const Faq: React.FC<{
+  stars: string;
+  leftArrow: string;
+  rightArrow: string;
+}> = ({ stars, leftArrow, rightArrow }) => {
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem]">
       <img src={stars} alt="Stars" />
@@ -23,6 +27,22 @@ const Faq: React.FC<{ stars: string }> = ({ stars }) => {
           >
             Read More
           </button>
+        </div>
+      </div>
+      <div className="after-box">
+        <button className="after-box-btn">View All FAQ’s</button>
+        <div>
+          <div className="flex items-baseline gap-[1rem]">
+            <div className="arrow-container">
+              <img src={leftArrow} alt="Left arrow" />
+            </div>
+            <p className="about">
+              <span className="text-white">01</span> of <span>60</span>
+            </p>
+            <div className="arrow-container">
+              <img src={rightArrow} alt="right arrow" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
