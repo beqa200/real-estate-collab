@@ -5,6 +5,7 @@ import Ratings from "../components/Ratings";
 import Stars from "../images/home/stars.png";
 import LeftArrow from "../images/home/arrow-left.png";
 import RightArrow from "../images/home/arrow-right.png";
+import Faq from "../components/faq";
 
 const Home: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
       <Opportunities />
       <Products stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
       <Ratings stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
+      <Faq stars={Stars} />
     </>
   );
 };
