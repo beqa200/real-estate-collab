@@ -18,13 +18,6 @@ body {
     background-color: #141414;
 }
 
-/* .line {
-    position: relative;
-} */
-
-.for-background {
-    background-image: url('../../images/home/decoration-left.png')
-}
 
 @layer components  {
     .button-text {
