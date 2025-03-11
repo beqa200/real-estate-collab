@@ -22,18 +22,18 @@ export default function Achievements() {
     }, [])
 
     return (
-        <div>
-            <div>
-                <h1>Our Achievements</h1>
-                <p>Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>
+        <div className='flex flex-col px-5 gap-16 w-full max-w-[1200px] mx-auto  items-start  text-white'>
+            <div className='flex flex-col gap-1'>
+                <h1 className='font-bold text-[32px]'>Our Achievements</h1>
+                <p className='text-[#999999] text-[16px]'>Our story is one of continuous growth and evolution. We started as a small team with big dreams, determined to create a real estate platform that transcended the ordinary.</p>
             </div>
-            <div className='text-white'>
+            <div className='text-white '>
                 {info ? (
-                    <ul>
+                    <ul className='flex flex-col lg:flex-row items-center   gap-6 '>
                         {info.map((achievement) => (
-                            <li key={achievement.id}>
-                                <h2>{achievement.title}</h2>
-                                <p>{achievement.description}</p>
+                            <li className='border border-gray-700 rounded-2xl p-10 flex flex-col gap-5  ' key={achievement.id}>
+                                <h2 className='text-[20px] font-bold'>{achievement.title}</h2>
+                                <p className='text-[#999999] text-[16px]  '>{achievement.description}</p>
                             </li>
                         ))}
                     </ul>

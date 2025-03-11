@@ -1,4 +1,4 @@
-import React from 'react'
+
 import iconContainer from '../../images/home/Icon Container.png'
 
 export default function OurValues() {
