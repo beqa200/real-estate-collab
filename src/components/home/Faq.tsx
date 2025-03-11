@@ -9,7 +9,7 @@ const Faq: React.FC<{
   const swiperRef: any = useRef(null);
 
   return (
-    <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:relative xl:mt-[10.1rem] xl:relative">
+    <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:mt-[11rem] xl:relative">
       <img src={stars} alt="Stars" />
       <h3 className="title xl:text-[3.8rem]">Frequently Asked Questions</h3>
       <p className="about mt-[0.6rem] xl:text-[1.6rem] xl:mt-[1rem] xl:w-[60%]">

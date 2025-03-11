@@ -15,7 +15,7 @@ const Products: React.FC<{
   const swiperRef: any = useRef(null);
 
   return (
-    <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:relative">
+    <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:relative xl:mt-[9rem]">
       <img src={stars} alt="Stars" />
       <h3 className="title xl:text-[3.8rem]">Featured Properties</h3>
       <p className="about mt-[0.6rem] xl:text-[1.6rem] xl:max-w-[60%] xl:mt-[1rem]">
@@ -31,7 +31,7 @@ const Products: React.FC<{
         <SwiperSlide>
           <div
             className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
-                      xl:mt-[6rem]"
+                      xl:p-[3rem] xl:mt-[6rem]"
           >
             <img src={TemporaryImg} alt="Home" className="w-full" />
             <h5 className="title text-[1.8rem] mt-[1.6rem] xl:text-[2rem] xl:mt-[2rem]">
