@@ -11,7 +11,7 @@ const Ratings: React.FC<{
   const swiperRef: any = useRef(null);
 
   return (
-    <div className="w-[95.5%] mx-auto mt-[7.1rem]">
+    <div className="w-[95.5%] mx-auto mt-[7.1rem] max-w-[50rem]">
       <img src={stars} alt="Stars" />
       <h3 className="title">What Our Clients Says</h3>
       <p className="about mt-[0.6rem]">
