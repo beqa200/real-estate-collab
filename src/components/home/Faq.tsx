@@ -34,7 +34,6 @@ const Faq: React.FC<{
         spaceBetween={50}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {/* <SwiperSlide> */}
         {faq?.map((item: IFaq) => (
           <SwiperSlide>
             <div
