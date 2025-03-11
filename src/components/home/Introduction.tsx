@@ -3,9 +3,13 @@ import RountAd from "../../images/home/round-ad.png";
 
 const Introduction: React.FC = () => {
   return (
-    <div className="w-[95.5%] mx-auto mt-[4rem]">
-      <div className="relative">
-        <img src={IntroductionImg} alt="Introduction image" />
+    <div className="w-[95.5%] mx-auto mt-[4rem] flex flex-col items-center max-w-[50rem]">
+      <div className="relative w-full">
+        <img
+          src={IntroductionImg}
+          alt="Introduction image"
+          className="w-full"
+        />
         <div className="absolute bottom-[-4rem]">
           <img src={RountAd} alt="Ad" />
         </div>
