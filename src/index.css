@@ -47,7 +47,7 @@ body {
 
     .opportunities-container {
         @apply w-[95.5%] flex flex-wrap justify-center gap-[1rem] p-[1rem] rounded-[1.2rem] bg-[#141414] 
-        border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem]
+        border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem] max-w-[50rem]
     }
 
     .opportunity-container {
