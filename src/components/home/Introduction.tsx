@@ -2,6 +2,7 @@ import IntroductionImg from "../../images/home/introduction.png";
 import IntrodutionTabletImg from "../../images/home/tablet/introduction-tablet.png";
 import RountAd from "../../images/home/round-ad.png";
 import { useState, useEffect } from "react";
+import RoundAtTablet from "../../images/home/tablet/round-ad-tablet.png";
 
 const Introduction: React.FC = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280);
@@ -22,13 +23,17 @@ const Introduction: React.FC = () => {
     >
       <div className="relative w-full xl:order-1">
         {!isLargeScreen ? (
-          <img src={IntroductionImg} alt="Large screen Ad" className="w-full" />
+          <img src={IntroductionImg} alt="Building" className="w-full" />
         ) : (
-          <img src={IntrodutionTabletImg} alt="Small screen Ad" />
+          <img src={IntrodutionTabletImg} alt="Building" className="w-full" />
         )}
 
-        <div className="absolute bottom-[-4rem]">
-          <img src={RountAd} alt="Ad" className="block xl:hidden" />
+        <div className="absolute bottom-[-4rem] xl:left-[-6.4rem] xl:top-[9.5rem]">
+          {!isLargeScreen ? (
+            <img src={RountAd} alt="Ad" className="block xl:hidden" />
+          ) : (
+            <img src={RoundAtTablet} alt="Ad" />
+          )}
         </div>
       </div>
       <div className="mt-[5.6rem] xl:mt-0">

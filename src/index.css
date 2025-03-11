@@ -34,7 +34,7 @@ body {
 
     .result-container {
         @apply flex flex-col items-center justify-center gap-[0.5rem] w-full h-[9.1rem] rounded-[0.8rem] bg-[#1a1a1a] 
-        border-solid border-[0.1rem] border-[#1a1a1a] xl:items-start xl:pl-[2rem]
+        border-solid border-[0.1rem] border-[#1a1a1a] xl:items-start xl:pl-[2.5%] xl:gap-[1rem]
     }
 
     .people-amount {
