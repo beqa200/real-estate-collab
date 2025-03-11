@@ -48,15 +48,20 @@ body {
     .opportunities-container {
         @apply w-[95.5%] flex flex-wrap justify-center gap-[1rem] p-[1rem] rounded-[1.2rem] bg-[#141414] 
         border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem] max-w-[50rem]
+        xl:w-full xl:max-w-[280rem] xl:mt-0 xl:ring-6
     }
 
     .opportunity-container {
         @apply w-[48%] h-[14.4rem] flex flex-col items-center pt-[2rem] px-[1.4rem] gap-[1.4rem] rounded-[1rem]
-        border-1 border-[#262626] bg-[#1a1a1a] relative
+        border-1 border-[#262626] bg-[#1a1a1a] relative xl:w-[24.4%] 
     }
 
     .opportunity-text {
-        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center
+        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center xl:text-[1.6rem]
+    }
+
+    .opportunity-img {
+        @apply xl:w-[6rem] xl:h-[6rem]
     }
 
     .arrow {

@@ -8,22 +8,38 @@ const Opportunities: React.FC = () => {
   return (
     <div className="opportunities-container">
       <div className="opportunity-container ">
-        <img src={FirstOpportunityIcon} alt="Home" />
+        <img
+          src={FirstOpportunityIcon}
+          alt="Home"
+          className="opportunity-img"
+        />
         <p className="opportunity-text">Find Your Dream Home</p>
         <img src={Arrow} className="arrow" />
       </div>
       <div className="opportunity-container ">
-        <img src={SecondOpportunityIcon} alt="Photographer" />
+        <img
+          src={SecondOpportunityIcon}
+          alt="Photographer"
+          className="opportunity-img"
+        />
         <p className="opportunity-text">Unlock Property Value</p>
         <img src={Arrow} className="arrow" />
       </div>
       <div className="opportunity-container ">
-        <img src={ThirdOpportunityIcon} alt="Managment" />
+        <img
+          src={ThirdOpportunityIcon}
+          alt="Managment"
+          className="opportunity-img"
+        />
         <p className="opportunity-text">Effortless Property Management</p>
         <img src={Arrow} className="arrow" />
       </div>
       <div className="opportunity-container ">
-        <img src={FourthOpportunityIcon} alt="Sun" />
+        <img
+          src={FourthOpportunityIcon}
+          alt="Sun"
+          className="opportunity-img"
+        />
         <p className="opportunity-text">
           Smart Investments, Informed Decisions
         </p>
