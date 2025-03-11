@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import axios from "axios";
+import { IFaq } from "../../types/types";
 
 const Faq: React.FC<{
   stars: string;
@@ -7,6 +9,16 @@ const Faq: React.FC<{
   rightArrow: string;
 }> = ({ stars, leftArrow, rightArrow }) => {
   const swiperRef: any = useRef(null);
+
+  const [faq, setFaq] = useState<IFaq[] | null>();
+  useEffect(() => {
+    axios
+      .get("http://104.248.242.53:8000/home/faq/")
+      .then((res) => setFaq(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(faq);
 
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:mt-[11rem] xl:relative">
@@ -22,70 +34,35 @@ const Faq: React.FC<{
         spaceBetween={50}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        <SwiperSlide>
-          <div
-            className="mt-[4rem] p-[3rem] rounded-[1rem] bg-[#141414] border-1 border-[#262626]
+        {/* <SwiperSlide> */}
+        {faq?.map((item: IFaq) => (
+          <SwiperSlide>
+            <div
+              key={item.id}
+              className="mt-[4rem] p-[3rem] rounded-[1rem] bg-[#141414] border-1 border-[#262626]
                       xl:p-[4rem] xl:mt-[6rem]"
-          >
-            <div>
-              <h6 className="title text-[1.8rem] mt-[2.4rem] xl:text-[2rem]">
-                How do I search for properties on Estatein?
-              </h6>
-              <p
-                className="title text-[1.4rem] font-medium mt-[2rem] text-[#999] xl:text-[1.6rem] xl:mt-[2.4rem]
+            >
+              <div>
+                <h6 className="title text-[1.8rem] mt-[2.4rem] xl:text-[2rem]">
+                  {item.question}
+                </h6>
+                <p
+                  className="title text-[1.4rem] font-medium mt-[2rem] text-[#999] xl:text-[1.6rem] xl:mt-[2.4rem]
                           xl:tracking-[-0.1px]"
-              >
-                Learn how to use our user-friendly search tools to find
-                properties that match your criteria.
-              </p>
-              <button
-                className="w-full h-[4.6rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626]
+                >
+                  {item.answer}
+                </p>
+                <button
+                  className="w-full h-[4.6rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626]
                       text-[1.4rem] font-medium leading-[1.31] teacking-[-0.08px] text-white mt-[2rem]
                       xl:mt-[2.4rem]"
-              >
-                Read More
-              </button>
+                >
+                  Read More
+                </button>
+              </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mt-[4rem] p-[3rem] rounded-[1rem] bg-[#141414] border-1 border-[#262626]">
-            <div>
-              <h6 className="title text-[1.8rem] mt-[2.4rem]">
-                How do I search for properties on Estatein?
-              </h6>
-              <p className="title text-[1.4rem] font-medium mt-[2rem] text-[#999]">
-                Learn how to use our user-friendly search tools to find
-                properties that match your criteria.
-              </p>
-              <button
-                className="w-full h-[4.6rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626]
-                      text-[1.4rem] font-medium leading-[1.31] teacking-[-0.08px] text-white mt-[2rem]"
-              >
-                Read More
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="mt-[4rem] p-[3rem] rounded-[1rem] bg-[#141414] border-1 border-[#262626]">
-            <div>
-              <h6 className="title text-[1.8rem] mt-[2.4rem]">
-                How do I search for properties on Estatein?
-              </h6>
-              <p className="title text-[1.4rem] font-medium mt-[2rem] text-[#999]">
-                Learn how to use our user-friendly search tools to find
-                properties that match your criteria.
-              </p>
-              <button
-                className="w-full h-[4.6rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626]
-                      text-[1.4rem] font-medium leading-[1.31] teacking-[-0.08px] text-white mt-[2rem]"
-              >
-                Read More
-              </button>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="after-box">
         <button className="after-box-btn xl:absolute xl:top-[5rem] xl:right-0">
