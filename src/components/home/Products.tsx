@@ -161,7 +161,7 @@ const Products: React.FC<{
             >
               <img src={leftArrow} alt="Left arrow" />
             </div>
-            <p className="about xl:text-[1.6rem]">
+            <p className="about xl:text-[1.6rem] xl:mt-0">
               <span className="text-white">01</span> of <span>60</span>
             </p>
             <div
