@@ -10,15 +10,13 @@ const Faq: React.FC<{
 }> = ({ stars, leftArrow, rightArrow }) => {
   const swiperRef: any = useRef(null);
 
-  const [faq, setFaq] = useState<IFaq[] | null>();
+  const [faq, setFaq] = useState<IFaq[]>();
   useEffect(() => {
     axios
       .get("http://104.248.242.53:8000/home/faq/")
-      .then((res) => setFaq(res.data))
+      .then((res) => setFaq(res.data.results))
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(faq);
 
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:mt-[11rem] xl:relative">
@@ -35,9 +33,8 @@ const Faq: React.FC<{
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {faq?.map((item: IFaq) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <div
-              key={item.id}
               className="mt-[4rem] p-[3rem] rounded-[1rem] bg-[#141414] border-1 border-[#262626]
                       xl:p-[4rem] xl:mt-[6rem]"
             >

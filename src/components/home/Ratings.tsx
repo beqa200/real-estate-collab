@@ -1,5 +1,4 @@
 import Star from "../../images/home/star.png";
-import Customer from "../../images/home/profile-picture.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
@@ -12,13 +11,15 @@ const Ratings: React.FC<{
 }> = ({ stars, leftArrow, rightArrow }) => {
   const swiperRef: any = useRef(null);
 
-  const [ratings, setRatings] = useState<IRating[] | null>();
+  const [ratings, setRatings] = useState<IRating[] | undefined>();
   useEffect(() => {
     axios
       .get("http://104.248.242.53:8000/home/testimonal/")
-      .then((res) => setRatings(res.data))
+      .then((res) => setRatings(res.data.results))
       .catch((err) => console.log(err));
   }, []);
+
+  console.log(ratings);
 
   return (
     <div className="w-[95.5%] mx-auto mt-[7.1rem] max-w-[50rem] xl:max-w-[280rem] xl:relative xl:mt-[11rem]">
@@ -34,7 +35,7 @@ const Ratings: React.FC<{
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {ratings?.map((item: IRating) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <div
               className="mt-[4rem] p-[3rem] rounded-[1rem] bg-[#141414] border-1 border-[#262626]
                       xl:p-[4rem] xl:mt-[6rem]"
@@ -51,7 +52,11 @@ const Ratings: React.FC<{
                 </div>
                 <div className="flex items-center gap-[1rem] mt-[2.4rem] xl:mt-[3rem]">
                   <div className="flex">
-                    <img src={item.image} alt="customer" />
+                    <img
+                      src={item.image}
+                      alt="customer"
+                      className="w-[5rem] h-[5rem] rounded-[50%] object-cover"
+                    />
                   </div>
                   <div>
                     <p className="title text-[1.6rem] font-medium xl:text-[1.8rem]">
