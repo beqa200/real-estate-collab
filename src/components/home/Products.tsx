@@ -37,8 +37,13 @@ const Products: React.FC<{
         through Estatein.
       </p>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={50}
+        breakpoints={{
+          1280: {
+            slidesPerView: 3,
+          },
+        }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         <SwiperSlide>
@@ -46,7 +51,7 @@ const Products: React.FC<{
             className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
                       xl:p-[3rem] xl:mt-[6rem]"
           >
-            {/* <img src={TemporaryImg} alt="Home" className="w-full" />
+            <img src={TemporaryImg} alt="Home" className="w-full" />
             <h5 className="title text-[1.8rem] mt-[1.6rem] xl:text-[2rem] xl:mt-[2rem]">
               Rustic Retreat Cottage
             </h5>
@@ -80,7 +85,7 @@ const Products: React.FC<{
               >
                 View Property Details
               </button>
-            </div> */}
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>

@@ -30,8 +30,13 @@ const Ratings: React.FC<{
         clients. Discover why they chose Estatein for their real estate needs.
       </p>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={1}
         spaceBetween={50}
+        breakpoints={{
+          1280: {
+            slidesPerView: 3,
+          },
+        }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {ratings?.map((item: IRating) => (
