@@ -7,7 +7,19 @@ const Faq: React.FC<{
   stars: string;
   leftArrow: string;
   rightArrow: string;
-}> = ({ stars, leftArrow, rightArrow }) => {
+  pageCounter: number;
+  setPageCounter: React.Dispatch<React.SetStateAction<number>>;
+  totalSlides: number;
+  setTotalSlides: React.Dispatch<React.SetStateAction<number>>;
+}> = ({
+  stars,
+  leftArrow,
+  rightArrow,
+  pageCounter,
+  setPageCounter,
+  totalSlides,
+  setTotalSlides,
+}) => {
   const swiperRef: any = useRef(null);
 
   const [faq, setFaq] = useState<IFaq[]>();
@@ -17,6 +29,8 @@ const Faq: React.FC<{
       .then((res) => setFaq(res.data.results))
       .catch((err) => console.log(err));
   }, []);
+
+  // console.log(swiperRef);
 
   const [readMore, setReadMore] = useState<{ [key: number]: boolean }>({});
 
@@ -37,7 +51,11 @@ const Faq: React.FC<{
             slidesPerView: 3,
           },
         }}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+          setTotalSlides(swiper.slides.length); // Move it here
+        }}
+        onSlideChange={(swiper) => setPageCounter(swiper.activeIndex + 1)}
       >
         {faq?.map((item: IFaq) => (
           <SwiperSlide key={item.id}>
@@ -83,15 +101,13 @@ const Faq: React.FC<{
           <div className="flex items-baseline gap-[1rem]">
             <div
               className="arrow-container tablet:absolute tablet:right-21"
-              onClick={() => {
-                swiperRef.current?.slidePrev();
-                console.log(swiperRef.current);
-              }}
+              onClick={() => swiperRef.current?.slidePrev()}
             >
               <img src={leftArrow} alt="Left arrow" />
             </div>
             <p className="about tablet:text-[1.6rem] tablet:mt-0">
-              <span className="text-white">01</span> of <span>60</span>
+              <span className="text-white">{pageCounter}</span> of{" "}
+              <span>{totalSlides}</span>
             </p>
             <div
               className="arrow-container tablet:absolute tablet:right-0"

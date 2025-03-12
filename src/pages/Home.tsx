@@ -7,15 +7,43 @@ import LeftArrow from "../images/home/arrow-left.png";
 import RightArrow from "../images/home/arrow-right.png";
 import Faq from "../components/home/Faq";
 import Suggestion from "../components/home/Suggestion";
+import { useState } from "react";
 
 const Home: React.FC = () => {
+  const [pageCounter, setPageCounter] = useState<number>(1);
+  const [totalSlides, setTotalSlides] = useState<number>(0);
+
   return (
     <>
       <Introduction />
       <Opportunities />
-      <Products stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
-      <Ratings stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
-      <Faq stars={Stars} leftArrow={LeftArrow} rightArrow={RightArrow} />
+      <Products
+        stars={Stars}
+        leftArrow={LeftArrow}
+        rightArrow={RightArrow}
+        pageCounter={pageCounter}
+        setPageCounter={setPageCounter}
+        totalSlides={totalSlides}
+        setTotalSlides={setTotalSlides}
+      />
+      <Ratings
+        stars={Stars}
+        leftArrow={LeftArrow}
+        rightArrow={RightArrow}
+        pageCounter={pageCounter}
+        setPageCounter={setPageCounter}
+        totalSlides={totalSlides}
+        setTotalSlides={setTotalSlides}
+      />
+      <Faq
+        stars={Stars}
+        leftArrow={LeftArrow}
+        rightArrow={RightArrow}
+        pageCounter={pageCounter}
+        setPageCounter={setPageCounter}
+        totalSlides={totalSlides}
+        setTotalSlides={setTotalSlides}
+      />
       <Suggestion />
     </>
   );

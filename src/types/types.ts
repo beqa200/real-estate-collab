@@ -7,6 +7,7 @@ export interface IFaq  {
 export interface IRating {
     id: number;
     name: string;
+    title: string
     loaction: string;
     testimonial: string;
     image: string;

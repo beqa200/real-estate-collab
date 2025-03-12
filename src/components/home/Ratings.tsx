@@ -8,18 +8,29 @@ const Ratings: React.FC<{
   stars: string;
   leftArrow: string;
   rightArrow: string;
-}> = ({ stars, leftArrow, rightArrow }) => {
+  pageCounter: number;
+  setPageCounter: React.Dispatch<React.SetStateAction<number>>;
+  totalSlides: number;
+  setTotalSlides: React.Dispatch<React.SetStateAction<number>>;
+}> = ({
+  stars,
+  leftArrow,
+  rightArrow,
+  pageCounter,
+  setPageCounter,
+  totalSlides,
+  setTotalSlides,
+}) => {
   const swiperRef: any = useRef(null);
 
   const [ratings, setRatings] = useState<IRating[] | undefined>();
+
   useEffect(() => {
     axios
       .get("http://104.248.242.53:8000/home/testimonal/")
       .then((res) => setRatings(res.data.results))
       .catch((err) => console.log(err));
   }, []);
-
-  console.log(ratings);
 
   return (
     <div className="w-[95.5%] mx-auto mt-[7.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:relative tablet:mt-[11rem]">
@@ -38,6 +49,7 @@ const Ratings: React.FC<{
           },
         }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSlideChange={(swiper) => setPageCounter(swiper.activeIndex + 1)}
       >
         {ratings?.map((item: IRating) => (
           <SwiperSlide key={item.id}>
@@ -49,7 +61,7 @@ const Ratings: React.FC<{
                 <div>
                   <img src={Star} alt="Star" />
                   <h6 className="title text-[1.8rem] mt-[2.4rem] tablet:text-[2rem] tablet:mt-[3rem]">
-                    {item.testimonial}
+                    {item.title}
                   </h6>
                   <p className="title text-[1.4rem] font-medium mt-[0.6rem] tablet:text-[1.6rem] tablet:mt-[1rem]">
                     {item.testimonial}
@@ -89,7 +101,8 @@ const Ratings: React.FC<{
             <img src={leftArrow} alt="Left arrow" />
           </div>
           <p className="about tablet:text-[1.6rem] tablet:mt-0">
-            <span className="text-white">01</span> of <span>60</span>
+            <span className="text-white">{pageCounter}</span> of{" "}
+            <span>{ratings?.length}</span>
           </p>
           <div
             className="arrow-container tablet:absolute tablet:right-0"

@@ -1,4 +1,3 @@
-import TemporaryImg from "../../images/home/introduction.jpg";
 import BedroomImg from "../../images/home/bedroom.png";
 import BathroomImg from "../../images/home/bathroom.png";
 import BuildingImg from "../../images/home/building.png";
@@ -14,7 +13,19 @@ const Products: React.FC<{
   stars: string;
   leftArrow: string;
   rightArrow: string;
-}> = ({ stars, leftArrow, rightArrow }) => {
+  pageCounter: number;
+  setPageCounter: React.Dispatch<React.SetStateAction<number>>;
+  totalSlides: number;
+  setTotalSlides: React.Dispatch<React.SetStateAction<number>>;
+}> = ({
+  stars,
+  leftArrow,
+  rightArrow,
+  pageCounter,
+  setPageCounter,
+  totalSlides,
+  setTotalSlides,
+}) => {
   const swiperRef: any = useRef(null);
 
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -46,15 +57,20 @@ const Products: React.FC<{
           },
         }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSlideChange={(swiper) => setPageCounter(swiper.activeIndex + 1)}
       >
         {products?.map((item: IProduct) => (
           <SwiperSlide>
             <div
-              key={item.id}
+              key={item.title}
               className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
                       tablet:p-[3rem] tablet:mt-[6rem]"
             >
-              <img src={item.images[0].image} alt="Home" className="w-full" />
+              <img
+                // src={item.images[key].image}
+                alt="Home"
+                className="w-full rounded-[1rem] h-[21rem] object-cover tablet:h-[25.5rem]"
+              />
               <h5 className="title text-[1.8rem] mt-[1.6rem] tablet:text-[2rem] tablet:mt-[2rem]">
                 {item.title}
               </h5>
@@ -109,7 +125,8 @@ const Products: React.FC<{
               <img src={leftArrow} alt="Left arrow" />
             </div>
             <p className="about tablet:text-[1.6rem] tablet:mt-0">
-              <span className="text-white">01</span> of <span>60</span>
+              <span className="text-white">{pageCounter}</span> of{" "}
+              <span>{products.length}</span>
             </p>
             <div
               className="arrow-container tablet:absolute tablet:right-0"
