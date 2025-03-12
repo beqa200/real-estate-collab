@@ -18,6 +18,8 @@ const Faq: React.FC<{
       .catch((err) => console.log(err));
   }, []);
 
+  const [readMore, setReadMore] = useState<{ [key: number]: boolean }>({});
+
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[11rem] tablet:relative">
       <img src={stars} alt="Stars" />
@@ -51,9 +53,17 @@ const Faq: React.FC<{
                   className="title text-[1.4rem] font-medium mt-[2rem] text-[#999] tablet:text-[1.6rem] tablet:mt-[2.4rem]
                           tablet:tracking-[-0.1px]"
                 >
-                  {item.answer}
+                  {!readMore[item.id]
+                    ? item.answer.split(".").slice(0, 1).join(".") + "."
+                    : item.answer}
                 </p>
                 <button
+                  onClick={() =>
+                    setReadMore((prev) => ({
+                      ...prev,
+                      [item.id]: !prev[item.id],
+                    }))
+                  }
                   className="w-full h-[4.6rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626]
                       text-[1.4rem] font-medium leading-[1.31] teacking-[-0.08px] text-white mt-[2rem]
                       tablet:mt-[2.4rem]"
@@ -73,7 +83,10 @@ const Faq: React.FC<{
           <div className="flex items-baseline gap-[1rem]">
             <div
               className="arrow-container tablet:absolute tablet:right-21"
-              onClick={() => swiperRef.current?.slidePrev()}
+              onClick={() => {
+                swiperRef.current?.slidePrev();
+                console.log(swiperRef.current);
+              }}
             >
               <img src={leftArrow} alt="Left arrow" />
             </div>
