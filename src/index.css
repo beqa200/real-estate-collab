@@ -18,6 +18,11 @@ body {
     background-color: #141414;
 }
 
+@theme {
+    --breakpoint-tablet: 1440px;
+    --breakpoint-desktop: 1920px;
+}
+
 
 @layer components  {
     .button-text {
@@ -25,16 +30,16 @@ body {
     }
 
     .title {
-        @apply text-[2.8rem] font-semibold leading-[1.2] text-white xl:text-[4.6rem]
+        @apply text-[2.8rem] font-semibold leading-[1.2] text-white tablet:text-[4.6rem]
     }
 
     .about {
-        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem] xl:text-[1.6rem] xl:mt-[2rem]
+        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem] tablet:text-[1.6rem] tablet:mt-[2rem]
     }
 
     .result-container {
         @apply flex flex-col items-center justify-center gap-[0.5rem] w-full h-[9.1rem] rounded-[0.8rem] bg-[#1a1a1a] 
-        border-solid border-[0.1rem] border-[#1a1a1a] xl:items-start xl:pl-[2.5%] xl:gap-[1rem]
+        border-solid border-[0.1rem] border-[#1a1a1a] tablet:items-start tablet:pl-[2.5%] tablet:gap-[1rem]
     }
 
     .people-amount {
@@ -48,20 +53,20 @@ body {
     .opportunities-container {
         @apply w-[95.5%] flex flex-wrap justify-center gap-[1rem] p-[1rem] rounded-[1.2rem] bg-[#141414] 
         border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem] max-w-[50rem]
-        xl:w-full xl:max-w-[280rem] xl:mt-0 xl:ring-6
+        tablet:w-full tablet:max-w-[280rem] tablet:mt-0 tablet:ring-6
     }
 
     .opportunity-container {
         @apply w-[48%] h-[14.4rem] flex flex-col items-center pt-[2rem] px-[1.4rem] gap-[1.4rem] rounded-[1rem]
-        border-1 border-[#262626] bg-[#1a1a1a] relative xl:w-[24.4%] 
+        border-1 border-[#262626] bg-[#1a1a1a] relative tablet:w-[24.4%] 
     }
 
     .opportunity-text {
-        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center xl:text-[1.6rem]
+        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center tablet:text-[1.6rem]
     }
 
     .opportunity-img {
-        @apply xl:w-[6rem] xl:h-[6rem]
+        @apply tablet:w-[6rem] tablet:h-[6rem]
     }
 
     .arrow {
@@ -70,7 +75,7 @@ body {
 
     .feature-container {
         @apply w-[12.3rem] h-[3.3rem] flex justify-center items-center gap-[0.4rem] bg-[#1a1a1a] rounded-[28px] 
-        border-1 border-[#262626] xl:mt-[2.4rem] xl:w-[32%]
+        border-1 border-[#262626] tablet:mt-[2.4rem] tablet:w-[32%]
     }
 
     .feature-text {

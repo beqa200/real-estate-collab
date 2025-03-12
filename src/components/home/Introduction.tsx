@@ -23,9 +23,9 @@ const Introduction: React.FC = () => {
   return (
     <div
       className="w-[95.5%] mx-auto mt-[4rem] flex flex-col items-center max-w-[50rem]
-                 xl:max-w-[160rem] xl:flex-row xl:justify-baseline xl:pl-[8rem] xl:pr-0 xl:mt-[0px] xl:gap-[6rem] xl:w-full"
+                 tablet:max-w-[160rem] tablet:flex-row tablet:justify-baseline tablet:pl-[8rem] tablet:pr-0 tablet:mt-[0px] tablet:gap-[6rem] tablet:w-full"
     >
-      <div className="relative w-full xl:order-1">
+      <div className="relative w-full tablet:order-1">
         {!isLargeScreen && !isLargestScreen ? (
           <img
             src={IntroductionImg}
@@ -39,15 +39,15 @@ const Introduction: React.FC = () => {
           ""
         )}
 
-        <div className="absolute bottom-[-4rem] xl:left-[-6.4rem] xl:top-[9.5rem]">
+        <div className="absolute bottom-[-4rem] tablet:left-[-6.4rem] tablet:top-[9.5rem]">
           {!isLargeScreen ? (
-            <img src={RountAd} alt="Ad" className="block xl:hidden" />
+            <img src={RountAd} alt="Ad" className="block tablet:hidden" />
           ) : (
             <img src={RoundAtTablet} alt="Ad" />
           )}
         </div>
       </div>
-      <div className="mt-[5.6rem] xl:mt-0">
+      <div className="mt-[5.6rem] tablet:mt-0">
         <div>
           <h1 className="title">Discover Your Dream Property with Estatein</h1>
           <p className="about">
@@ -55,17 +55,17 @@ const Introduction: React.FC = () => {
             our listings to find the home that matches your dreams.
           </p>
         </div>
-        <div className="flex flex-col gap-[1.6rem] mt-[4rem] xl:flex-row xl:mt-[5rem]">
+        <div className="flex flex-col gap-[1.6rem] mt-[4rem] tablet:flex-row tablet:mt-[5rem]">
           <button
             className="w-full h-[4.9rem] rounded-[8px] bg-transparent border-solid
                        border-[0.1rem] border-[#262626] button-text
-                       xl:w-[11.1rem]"
+                       tablet:w-[11.1rem]"
           >
             Learn More
           </button>
           <button
             className="w-full h-[4.9rem] rounded-[8px] bg-[#703bf7] button-text
-                       xl:w-[15.1rem]"
+                       tablet:w-[15.1rem]"
           >
             Browse Properties
           </button>
