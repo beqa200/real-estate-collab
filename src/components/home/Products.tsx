@@ -1,9 +1,11 @@
-import TemporaryImg from "../../images/home/introduction.png";
+import TemporaryImg from "../../images/home/introduction.jpg";
 import BedroomImg from "../../images/home/bedroom.png";
 import BathroomImg from "../../images/home/bathroom.png";
 import BuildingImg from "../../images/home/building.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 import "swiper/swiper-bundle.css";
 
@@ -13,6 +15,17 @@ const Products: React.FC<{
   rightArrow: string;
 }> = ({ stars, leftArrow, rightArrow }) => {
   const swiperRef: any = useRef(null);
+
+  const [products, setProducts] = useState();
+  useEffect(() => {
+    axios
+      .get("http://104.248.242.53:8000/property/property/")
+      .then((res) => {
+        setProducts(res.data.results);
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] xl:max-w-[280rem] xl:relative xl:mt-[9rem]">
@@ -33,7 +46,7 @@ const Products: React.FC<{
             className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
                       xl:p-[3rem] xl:mt-[6rem]"
           >
-            <img src={TemporaryImg} alt="Home" className="w-full" />
+            {/* <img src={TemporaryImg} alt="Home" className="w-full" />
             <h5 className="title text-[1.8rem] mt-[1.6rem] xl:text-[2rem] xl:mt-[2rem]">
               Rustic Retreat Cottage
             </h5>
@@ -67,7 +80,7 @@ const Products: React.FC<{
               >
                 View Property Details
               </button>
-            </div>
+            </div> */}
           </div>
         </SwiperSlide>
         <SwiperSlide>

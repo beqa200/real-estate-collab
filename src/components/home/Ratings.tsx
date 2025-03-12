@@ -1,8 +1,8 @@
 import Star from "../../images/home/star.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState, useEffect } from "react";
-import axios from "axios";
 import { IRating } from "../../types/types";
+import axios from "axios";
 
 const Ratings: React.FC<{
   stars: string;

@@ -1,15 +1,19 @@
-import IntroductionImg from "../../images/home/introduction.png";
-import IntrodutionTabletImg from "../../images/home/tablet/introduction-tablet.png";
+import IntroductionImg from "../../images/home/introduction.jpg";
+import IntroductionTabletImg from "../../images/home/introduction-tablet.jpg";
 import RountAd from "../../images/home/round-ad.png";
 import { useState, useEffect } from "react";
 import RoundAtTablet from "../../images/home/tablet/round-ad-tablet.png";
 
 const Introduction: React.FC = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280);
+  const [isLargestScreen, setIsLargestScreen] = useState(
+    window.innerWidth >= 1920
+  );
 
   useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1280);
+      setIsLargestScreen(window.innerWidth >= 1920);
     };
 
     window.addEventListener("resize", handleResize);
@@ -22,10 +26,17 @@ const Introduction: React.FC = () => {
                  xl:max-w-[160rem] xl:flex-row xl:justify-baseline xl:pl-[8rem] xl:pr-0 xl:mt-[0px] xl:gap-[6rem] xl:w-full"
     >
       <div className="relative w-full xl:order-1">
-        {!isLargeScreen ? (
-          <img src={IntroductionImg} alt="Building" className="w-full" />
+        {!isLargeScreen && !isLargestScreen ? (
+          <img
+            src={IntroductionImg}
+            alt="Building"
+            className="w-full"
+            style={{ borderRadius: "5%" }}
+          />
+        ) : isLargeScreen ? (
+          <img src={IntroductionTabletImg} alt="Building" className="w-full" />
         ) : (
-          <img src={IntrodutionTabletImg} alt="Building" className="w-full" />
+          ""
         )}
 
         <div className="absolute bottom-[-4rem] xl:left-[-6.4rem] xl:top-[9.5rem]">
