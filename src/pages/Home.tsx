@@ -20,7 +20,12 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <Introduction />
+      <Introduction
+        isLargeScreen={isLargeScreen}
+        setIsLargeScreen={setIsLargeScreen}
+        isLargestScreen={isLargestScreen}
+        setIsLargestScreen={setIsLargestScreen}
+      />
       <Opportunities />
       <Products
         stars={Stars}

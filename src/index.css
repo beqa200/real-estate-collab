@@ -30,20 +30,22 @@ body {
     }
 
     .title {
-        @apply text-[2.8rem] font-semibold leading-[1.2] text-white tablet:text-[4.6rem]
+        @apply text-[2.8rem] font-semibold leading-[1.2] text-white tablet:text-[4.6rem] desktop:text-[6rem]
     }
 
     .about {
         @apply text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem] tablet:text-[1.6rem] tablet:mt-[2rem]
+        desktop:text-[1.8rem] desktop:mt-[2.4rem]
     }
 
     .result-container {
         @apply flex flex-col items-center justify-center gap-[0.5rem] w-full h-[9.1rem] rounded-[0.8rem] bg-[#1a1a1a] 
         border-solid border-[0.1rem] border-[#1a1a1a] tablet:items-start tablet:pl-[2.5%] tablet:gap-[1rem]
+        desktop:h-[9.9rem] desktop:rounded-[10px] desktop:gap-[2rem] desktop:pl-[4%]
     }
 
     .people-amount {
-        @apply text-[2.4rem] font-bold leading-[1.5rem] text-white
+        @apply text-[2.4rem] font-bold leading-[1.5rem] text-white desktop:text-[3rem]
     }
 
     .result {
