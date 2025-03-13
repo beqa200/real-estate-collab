@@ -54,10 +54,18 @@ const Products: React.FC<{
   }, []);
 
   return (
-    <div className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:relative tablet:mt-[9rem]">
+    <div
+      className="w-[95.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:relative tablet:mt-[9rem]
+                desktop:w-[83.1%] desktop:mt-[11rem]"
+    >
       <img src={stars} alt="Stars" />
-      <h3 className="title tablet:text-[3.8rem]">Featured Properties</h3>
-      <p className="about mt-[0.6rem] tablet:text-[1.6rem] tablet:max-w-[60%] tablet:mt-[1rem]">
+      <h3 className="title tablet:text-[3.8rem] desktop:text-[4.8rem]">
+        Featured Properties
+      </h3>
+      <p
+        className="about mt-[0.6rem] tablet:text-[1.6rem] tablet:max-w-[60%] tablet:mt-[1rem] desktop:text-[1.8rem]
+                  desktop:mt-[1.4rem]"
+      >
         Explore our handpicked selection of featured properties. Each listing
         offers a glimpse into exceptional homes and investments available
         through Estatein.
@@ -78,21 +86,24 @@ const Products: React.FC<{
             <div
               key={item.title}
               className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
-                      tablet:p-[3rem] tablet:mt-[6rem]"
+                      tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
             >
               <img
                 // src={item.images[0].image}
                 alt="Home"
                 className="w-full rounded-[1rem] h-[21rem] object-cover tablet:h-[25.5rem]"
               />
-              <h5 className="title text-[1.8rem] mt-[1.6rem] tablet:text-[2rem] tablet:mt-[2rem]">
+              <h5
+                className="title text-[1.8rem] mt-[1.6rem] tablet:text-[2rem] tablet:mt-[2rem]
+                          desktop:text-[2.4rem] desktop:mt-[3rem]"
+              >
                 {item.title}
               </h5>
-              <p className="about mt-[0.2rem] tablet:text-[1.6rem] tablet:mt-[0.4rem]">
+              <p className="about mt-[0.2rem] tablet:text-[1.6rem] tablet:mt-[0.4rem] desktop:text-[2.4rem] destkop:mt-[0.6rem]">
                 {item.description}
                 <span className="text-white underline">Read More</span>
               </p>
-              <div className="flex gap-[0.6rem] flex-wrap mt-[2rem]">
+              <div className="flex gap-[0.6rem] flex-wrap mt-[2rem] desktop:gap-[1rem] desktop:mt-[3rem]">
                 <div className="feature-container">
                   <img src={BedroomImg} alt="Bedroom" />
                   <span className="feature-text">{item.bedrooms}-Bedroom</span>
@@ -108,16 +119,16 @@ const Products: React.FC<{
                   <span className="feature-text">Villa</span>
                 </div>
               </div>
-              <div className="flex justify-between mt-[2rem]">
+              <div className="flex justify-between mt-[2rem] desktop:mt-[3rem]">
                 <div>
-                  <span className="about">Price</span>
-                  <p className="title text-[1.8rem] tablet:text-[2rem]">
+                  <span className="about desktop:text-[1.8rem]">Price</span>
+                  <p className="title text-[1.8rem] tablet:text-[2rem] desktop:text-[2.4rem] desktop:mt-[0.2rem]">
                     ${item.price}
                   </p>
                 </div>
                 <button
                   className="w-[20.2rem] h-[4.9rem] rounded-[8px] bg-[#703bf7] 
-                      text-[1.4rem] font-medium text-white"
+                      text-[1.4rem] font-medium text-white desktop:h-[6.3rem] desktop:rounded-[1rem] desktop:text-[1.8rem]"
                 >
                   View Property Details
                 </button>
@@ -127,13 +138,13 @@ const Products: React.FC<{
         ))}
       </Swiper>
       <div className="after-box flex">
-        <button className="after-box-btn tablet:absolute tablet:top-[7.5rem] tablet:right-0">
+        <button className="after-box-btn tablet:absolute tablet:top-[7.5rem] tablet:right-0 desktop:top-[8.2rem]">
           View All Properties
         </button>
         <div>
-          <div className="flex items-baseline gap-[1rem]">
+          <div className="flex items-baseline gap-[1rem] desktop:p-[2rem]">
             <div
-              className={`arrow-container tablet:absolute tablet:right-21 ${
+              className={`arrow-container tablet:absolute tablet:right-21 desktop:right-28 ${
                 pageCounter !== 1 ? "bg-[#262626]" : "bg-[#1a1a1a]"
               }`}
               onClick={() => swiperRef.current?.slidePrev()}
@@ -148,7 +159,7 @@ const Products: React.FC<{
                 } `}
               />
             </div>
-            <p className="about tablet:text-[1.6rem] tablet:mt-0">
+            <p className="about tablet:text-[1.6rem] tablet:mt-0 desktop:text-[2rem] ">
               <span className="text-white">{pageCounter}</span> of{" "}
               <span>
                 {!isLargeScreen && !isLargestScreen && products
@@ -176,7 +187,7 @@ const Products: React.FC<{
               <img
                 src={rightArrow}
                 alt="right arrow"
-                className={`${
+                className={` tablet:w-[1.68rem] tablet:h-[1.44rem] desktop:w-[2.1rem] desktop:h-[1.8rem] ${
                   !isLargeScreen &&
                   !isLargestScreen &&
                   products &&

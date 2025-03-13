@@ -11,6 +11,7 @@ export interface IRating {
     loaction: string;
     testimonial: string;
     image: string;
+    rating: number;
 }
 
 export interface IProduct {
