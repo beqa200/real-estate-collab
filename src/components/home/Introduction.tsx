@@ -5,14 +5,14 @@ import { useState, useEffect } from "react";
 import RoundAtTablet from "../../images/home/tablet/round-ad-tablet.png";
 
 const Introduction: React.FC = () => {
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1440);
   const [isLargestScreen, setIsLargestScreen] = useState(
     window.innerWidth >= 1920
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1280);
+      setIsLargeScreen(window.innerWidth >= 1440);
       setIsLargestScreen(window.innerWidth >= 1920);
     };
 

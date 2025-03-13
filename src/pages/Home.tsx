@@ -11,7 +11,12 @@ import { useState } from "react";
 
 const Home: React.FC = () => {
   const [pageCounter, setPageCounter] = useState<number>(1);
-  const [totalSlides, setTotalSlides] = useState<number>(0);
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(
+    window.innerWidth >= 1440
+  );
+  const [isLargestScreen, setIsLargestScreen] = useState<boolean>(
+    window.innerWidth >= 1920
+  );
 
   return (
     <>
@@ -23,8 +28,10 @@ const Home: React.FC = () => {
         rightArrow={RightArrow}
         pageCounter={pageCounter}
         setPageCounter={setPageCounter}
-        totalSlides={totalSlides}
-        setTotalSlides={setTotalSlides}
+        isLargeScreen={isLargeScreen}
+        setIsLargeScreen={setIsLargeScreen}
+        isLargestScreen={isLargestScreen}
+        setIsLargestScreen={setIsLargeScreen}
       />
       <Ratings
         stars={Stars}
@@ -32,8 +39,10 @@ const Home: React.FC = () => {
         rightArrow={RightArrow}
         pageCounter={pageCounter}
         setPageCounter={setPageCounter}
-        totalSlides={totalSlides}
-        setTotalSlides={setTotalSlides}
+        isLargeScreen={isLargeScreen}
+        setIsLargeScreen={setIsLargeScreen}
+        isLargestScreen={isLargestScreen}
+        setIsLargestScreen={setIsLargeScreen}
       />
       <Faq
         stars={Stars}
@@ -41,8 +50,10 @@ const Home: React.FC = () => {
         rightArrow={RightArrow}
         pageCounter={pageCounter}
         setPageCounter={setPageCounter}
-        totalSlides={totalSlides}
-        setTotalSlides={setTotalSlides}
+        isLargeScreen={isLargeScreen}
+        setIsLargeScreen={setIsLargeScreen}
+        isLargestScreen={isLargestScreen}
+        setIsLargestScreen={setIsLargeScreen}
       />
       <Suggestion />
     </>

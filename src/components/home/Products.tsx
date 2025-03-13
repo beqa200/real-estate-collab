@@ -15,16 +15,20 @@ const Products: React.FC<{
   rightArrow: string;
   pageCounter: number;
   setPageCounter: React.Dispatch<React.SetStateAction<number>>;
-  totalSlides: number;
-  setTotalSlides: React.Dispatch<React.SetStateAction<number>>;
+  isLargeScreen: boolean;
+  setIsLargeScreen: React.Dispatch<React.SetStateAction<boolean>>;
+  isLargestScreen: boolean;
+  setIsLargestScreen: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({
   stars,
   leftArrow,
   rightArrow,
   pageCounter,
   setPageCounter,
-  totalSlides,
-  setTotalSlides,
+  isLargeScreen,
+  setIsLargeScreen,
+  isLargestScreen,
+  setIsLargestScreen,
 }) => {
   const swiperRef: any = useRef(null);
 
@@ -37,6 +41,16 @@ const Products: React.FC<{
         console.log(res.data.results);
       })
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1440);
+      setIsLargestScreen(window.innerWidth >= 1920);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -67,7 +81,7 @@ const Products: React.FC<{
                       tablet:p-[3rem] tablet:mt-[6rem]"
             >
               <img
-                // src={item.images[key].image}
+                // src={item.images[0].image}
                 alt="Home"
                 className="w-full rounded-[1rem] h-[21rem] object-cover tablet:h-[25.5rem]"
               />
@@ -126,7 +140,13 @@ const Products: React.FC<{
             </div>
             <p className="about tablet:text-[1.6rem] tablet:mt-0">
               <span className="text-white">{pageCounter}</span> of{" "}
-              <span>{products.length}</span>
+              <span>
+                {!isLargeScreen && !isLargestScreen && products
+                  ? products.length
+                  : isLargeScreen && products
+                  ? products?.length - 2
+                  : null}
+              </span>
             </p>
             <div
               className="arrow-container tablet:absolute tablet:right-0"

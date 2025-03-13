@@ -10,16 +10,20 @@ const Ratings: React.FC<{
   rightArrow: string;
   pageCounter: number;
   setPageCounter: React.Dispatch<React.SetStateAction<number>>;
-  totalSlides: number;
-  setTotalSlides: React.Dispatch<React.SetStateAction<number>>;
+  isLargeScreen: boolean;
+  setIsLargeScreen: React.Dispatch<React.SetStateAction<boolean>>;
+  isLargestScreen: boolean;
+  setIsLargestScreen: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({
   stars,
   leftArrow,
   rightArrow,
   pageCounter,
   setPageCounter,
-  totalSlides,
-  setTotalSlides,
+  isLargeScreen,
+  setIsLargeScreen,
+  isLargestScreen,
+  setIsLargestScreen,
 }) => {
   const swiperRef: any = useRef(null);
 
@@ -30,6 +34,16 @@ const Ratings: React.FC<{
       .get("http://104.248.242.53:8000/home/testimonal/")
       .then((res) => setRatings(res.data.results))
       .catch((err) => console.log(err));
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1440);
+      setIsLargestScreen(window.innerWidth >= 1920);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -102,7 +116,13 @@ const Ratings: React.FC<{
           </div>
           <p className="about tablet:text-[1.6rem] tablet:mt-0">
             <span className="text-white">{pageCounter}</span> of{" "}
-            <span>{ratings?.length}</span>
+            <span>
+              {!isLargeScreen && !isLargestScreen && ratings
+                ? ratings.length
+                : isLargeScreen && ratings
+                ? ratings?.length - 2
+                : null}
+            </span>
           </p>
           <div
             className="arrow-container tablet:absolute tablet:right-0"

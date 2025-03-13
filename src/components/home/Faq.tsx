@@ -9,16 +9,20 @@ const Faq: React.FC<{
   rightArrow: string;
   pageCounter: number;
   setPageCounter: React.Dispatch<React.SetStateAction<number>>;
-  totalSlides: number;
-  setTotalSlides: React.Dispatch<React.SetStateAction<number>>;
+  isLargeScreen: boolean;
+  setIsLargeScreen: React.Dispatch<React.SetStateAction<boolean>>;
+  isLargestScreen: boolean;
+  setIsLargestScreen: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({
   stars,
   leftArrow,
   rightArrow,
   pageCounter,
   setPageCounter,
-  totalSlides,
-  setTotalSlides,
+  isLargeScreen,
+  setIsLargeScreen,
+  isLargestScreen,
+  setIsLargestScreen,
 }) => {
   const swiperRef: any = useRef(null);
 
@@ -30,7 +34,20 @@ const Faq: React.FC<{
       .catch((err) => console.log(err));
   }, []);
 
-  // console.log(swiperRef);
+  // const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1440);
+  // const [isLargestScreen, setIsLargestScreen] = useState(
+  //   window.innerWidth >= 1920
+  // );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1440);
+      setIsLargestScreen(window.innerWidth >= 1920);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const [readMore, setReadMore] = useState<{ [key: number]: boolean }>({});
 
@@ -53,7 +70,6 @@ const Faq: React.FC<{
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
-          setTotalSlides(swiper.slides.length); // Move it here
         }}
         onSlideChange={(swiper) => setPageCounter(swiper.activeIndex + 1)}
       >
@@ -107,7 +123,13 @@ const Faq: React.FC<{
             </div>
             <p className="about tablet:text-[1.6rem] tablet:mt-0">
               <span className="text-white">{pageCounter}</span> of{" "}
-              <span>{totalSlides}</span>
+              <span>
+                {!isLargeScreen && !isLargestScreen && faq
+                  ? faq.length
+                  : isLargeScreen && faq
+                  ? faq?.length - 2
+                  : null}
+              </span>
             </p>
             <div
               className="arrow-container tablet:absolute tablet:right-0"
