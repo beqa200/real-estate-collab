@@ -133,10 +133,20 @@ const Products: React.FC<{
         <div>
           <div className="flex items-baseline gap-[1rem]">
             <div
-              className="arrow-container tablet:absolute tablet:right-21"
+              className={`arrow-container tablet:absolute tablet:right-21 ${
+                pageCounter !== 1 ? "bg-[#262626]" : "bg-[#1a1a1a]"
+              }`}
               onClick={() => swiperRef.current?.slidePrev()}
             >
-              <img src={leftArrow} alt="Left arrow" />
+              <img
+                src={leftArrow}
+                alt="Left arrow"
+                className={`${
+                  pageCounter !== 1
+                    ? "grayscale brightness-200"
+                    : "filter invert-[50%] brightness-[50%]"
+                } `}
+              />
             </div>
             <p className="about tablet:text-[1.6rem] tablet:mt-0">
               <span className="text-white">{pageCounter}</span> of{" "}
@@ -149,10 +159,36 @@ const Products: React.FC<{
               </span>
             </p>
             <div
-              className="arrow-container tablet:absolute tablet:right-0"
+              className={`arrow-container tablet:absolute tablet:right-0 ${
+                !isLargeScreen &&
+                !isLargestScreen &&
+                products &&
+                pageCounter !== products.length
+                  ? "bg-[#262626]"
+                  : isLargeScreen &&
+                    products &&
+                    pageCounter !== products.length - 2
+                  ? "bg-[#262626]"
+                  : "bg-[#1a1a1a]"
+              }`}
               onClick={() => swiperRef.current?.slideNext()}
             >
-              <img src={rightArrow} alt="right arrow" />
+              <img
+                src={rightArrow}
+                alt="right arrow"
+                className={`${
+                  !isLargeScreen &&
+                  !isLargestScreen &&
+                  products &&
+                  pageCounter !== products.length
+                    ? "grayscale brightness-200"
+                    : isLargeScreen &&
+                      products &&
+                      pageCounter !== products?.length - 2
+                    ? "grayscale brightness-200"
+                    : "filter invert-[50%] brightness-[50%]"
+                } `}
+              />
             </div>
           </div>
         </div>

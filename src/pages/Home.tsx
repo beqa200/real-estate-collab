@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         isLargeScreen={isLargeScreen}
         setIsLargeScreen={setIsLargeScreen}
         isLargestScreen={isLargestScreen}
-        setIsLargestScreen={setIsLargeScreen}
+        setIsLargestScreen={setIsLargestScreen}
       />
       <Ratings
         stars={Stars}
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
         isLargeScreen={isLargeScreen}
         setIsLargeScreen={setIsLargeScreen}
         isLargestScreen={isLargestScreen}
-        setIsLargestScreen={setIsLargeScreen}
+        setIsLargestScreen={setIsLargestScreen}
       />
       <Faq
         stars={Stars}
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
         isLargeScreen={isLargeScreen}
         setIsLargeScreen={setIsLargeScreen}
         isLargestScreen={isLargestScreen}
-        setIsLargestScreen={setIsLargeScreen}
+        setIsLargestScreen={setIsLargestScreen}
       />
       <Suggestion />
     </>

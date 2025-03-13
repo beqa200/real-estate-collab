@@ -109,10 +109,20 @@ const Ratings: React.FC<{
         </button>
         <div className="flex items-baseline gap-[1rem]">
           <div
-            className="arrow-container tablet:absolute tablet:right-21"
+            className={`arrow-container tablet:absolute tablet:right-21 ${
+              pageCounter !== 1 ? "bg-[#262626]" : "bg-[#1a1a1a]"
+            }`}
             onClick={() => swiperRef.current?.slidePrev()}
           >
-            <img src={leftArrow} alt="Left arrow" />
+            <img
+              src={leftArrow}
+              alt="Left arrow"
+              className={`${
+                pageCounter !== 1
+                  ? "grayscale brightness-200"
+                  : "filter invert-[50%] brightness-[50%]"
+              } `}
+            />
           </div>
           <p className="about tablet:text-[1.6rem] tablet:mt-0">
             <span className="text-white">{pageCounter}</span> of{" "}
@@ -125,10 +135,34 @@ const Ratings: React.FC<{
             </span>
           </p>
           <div
-            className="arrow-container tablet:absolute tablet:right-0"
+            className={`arrow-container tablet:absolute tablet:right-0 ${
+              !isLargeScreen &&
+              !isLargestScreen &&
+              ratings &&
+              pageCounter !== ratings.length
+                ? "bg-[#262626]"
+                : isLargeScreen && ratings && pageCounter !== ratings.length - 2
+                ? "bg-[#262626]"
+                : "bg-[#1a1a1a]"
+            }`}
             onClick={() => swiperRef.current?.slideNext()}
           >
-            <img src={rightArrow} alt="right arrow" />o
+            <img
+              src={rightArrow}
+              alt="right arrow"
+              className={`${
+                !isLargeScreen &&
+                !isLargestScreen &&
+                ratings &&
+                pageCounter !== ratings.length
+                  ? "grayscale brightness-200"
+                  : isLargeScreen &&
+                    ratings &&
+                    pageCounter !== ratings?.length - 2
+                  ? "grayscale brightness-200"
+                  : "filter invert-[50%] brightness-[50%]"
+              } `}
+            />
           </div>
         </div>
       </div>

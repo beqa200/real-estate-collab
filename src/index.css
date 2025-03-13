@@ -83,7 +83,7 @@ body {
     }
 
     .arrow-container {
-        @apply w-[4.4rem] h-[4.4rem] rounded-[69px] bg-[#1a1a1a] border-1 border-[#262626]
+        @apply w-[4.4rem] h-[4.4rem] rounded-[69px] border-1 border-[#262626]
         flex justify-center items-center
     }
 
