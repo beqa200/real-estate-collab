@@ -3,6 +3,7 @@ import Achievements from "../About/Achievements";
 import Experience from "../About/Experience";
 import OurJourney from "../About/OurJourney";
 import OurValues from "../About/OurValues";
+import Team from "../About/Team";
 
 export default function About() {
     return (
@@ -11,6 +12,7 @@ export default function About() {
             <OurValues />
             <Achievements />
             <Experience />
+            <Team />
         </div>
 
     )

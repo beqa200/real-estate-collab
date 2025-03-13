@@ -11,15 +11,22 @@ export default function Achievements() {
         const getInfo = () => {
             axios.get('http://104.248.242.53:8000/about/achievements/')
                 .then((res) => {
-                    console.log(res)
-                    setInfo(res.data)
+                    console.log("API Response:", res.data); // Log response to check structure
+                    if (Array.isArray(res.data)) {
+                        setInfo(res.data); // Only set if it's an array
+                    } else {
+                        console.error("Unexpected API response format:", res.data);
+                        setInfo([]); // Prevent errors
+                    }
                 })
                 .catch((err) => {
-                    console.log(err)
-                })
-        }
-        getInfo()
-    }, [])
+                    console.error("API Error:", err);
+                    setInfo([]); // Handle error case
+                });
+        };
+        getInfo();
+    }, []);
+
 
     return (
         <div className='flex flex-col px-5 gap-16 w-full max-w-[1200px] mx-auto  items-start  text-white'>
