@@ -52,7 +52,7 @@ const Ratings: React.FC<{
                 desktop:w-[83.1%] desktop:mt-[11rem]"
     >
       <img src={stars} alt="Stars" />
-      <h3 className="title tablet:text-[3.8rem] desktop:text-[4.8rem] ">
+      <h3 className="title tablet:text-[3.8rem] desktop:text-[4.8rem]">
         What Our Clients Says
       </h3>
       <p
