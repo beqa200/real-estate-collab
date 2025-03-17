@@ -23,8 +23,8 @@ const Filter: React.FC = () => {
         </div>
       </div>
       <section className="flex flex-col gap-[2rem] p-[2rem] rounded-[12px] bg-[#1a1a1a] mt-[2rem]">
-        <div>
-          <select name="location" id="location">
+        <div className="select-text select-container">
+          <select name="location" id="location" className="select-itself">
             <option value="Location" disabled selected>
               Location
             </option>
@@ -32,10 +32,11 @@ const Filter: React.FC = () => {
             <option value="opel">Opel</option>
             <option value="audi">Audi</option>
           </select>
-          <img src={Location} alt="Location" />
+          <img src={Location} alt="Location" className="select-img" />
+          <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
-        <div>
-          <select name="type" id="type">
+        <div className="select-text select-container">
+          <select name="type" id="type" className="select-itself">
             <option value="Property Type" disabled selected>
               Property Type
             </option>
@@ -43,10 +44,11 @@ const Filter: React.FC = () => {
             <option value="opel">Opel</option>
             <option value="audi">Audi</option>
           </select>
-          <img src={Home} alt="Home" />
+          <img src={Home} alt="Home" className="select-img" />
+          <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
-        <div>
-          <select name="price" id="price">
+        <div className="select-text select-container">
+          <select name="price" id="price" className="select-itself">
             <option value="Pricing Range" defaultValue={"Pricing range"}>
               Pricing Range
             </option>
@@ -54,10 +56,11 @@ const Filter: React.FC = () => {
             <option value="opel">Opel</option>
             <option value="audi">Audi</option>
           </select>
-          <img src={Banknote} alt="Home" />
+          <img src={Banknote} alt="Home" className="select-img" />
+          <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
-        <div>
-          <select name="size" id="size">
+        <div className="select-text select-container">
+          <select name="size" id="size" className="select-itself">
             <option value="Property Size" disabled selected>
               Property Size
             </option>
@@ -65,10 +68,11 @@ const Filter: React.FC = () => {
             <option value="opel">Opel</option>
             <option value="audi">Audi</option>
           </select>
-          <img src={Cube} alt="Home" />
+          <img src={Cube} alt="Home" className="select-img" />
+          <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
-        <div>
-          <select name="year" value="year">
+        <div className="select-text select-container">
+          <select name="year" value="year" className="select-itself">
             <option value="Build Year" disabled selected>
               Build Year
             </option>
@@ -76,7 +80,8 @@ const Filter: React.FC = () => {
             <option value="opel">Opel</option>
             <option value="audi">Audi</option>
           </select>
-          <img src={Calendar} alt="Home" />
+          <img src={Calendar} alt="Home" className="select-img" />
+          <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
       </section>
     </div>

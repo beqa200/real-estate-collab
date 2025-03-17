@@ -31,6 +31,30 @@ body {
     .custom-shadow {
         box-shadow: 0 0 0 4px #191919;
     }
+
+    select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url('./images//properties/mobile/arrow-down.png') no-repeat right;
+        width: 80%;
+    }
+
+    .select-img {
+        position: absolute;
+        top: 1.3rem;
+        /* position: relative; */
+    }
+
+    /* .select-img::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1.1rem;
+        height: 1.3rem;
+       
+        background-color: #fff;
+    } */
   }
 
 @layer components  {
@@ -109,5 +133,19 @@ body {
         @apply w-[15.5rem] py-[1.4rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626] 
         text-[1.4rem] font-semibold leading-[1.5] text-white desktop:w-[19.6rem] desktop:h-[6.3rem]
         desktop:rounded-[10px] desktop:text-[1.8rem]
+    }
+
+    /* Styles for the properties page */
+    .select-text {
+        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999]
+    }
+
+    .select-container {
+        @apply relative
+        h-[5.2rem] bg-[#141414] border-1 border-[#262626] rounded-[8px] py-[1.2rem] px-[1.4rem]
+    }
+
+    .select-itself {
+        @apply ml-[5rem]
     }
 }
