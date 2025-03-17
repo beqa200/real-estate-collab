@@ -5,7 +5,6 @@ import Home from "../../images/properties/mobile/home.png";
 import Banknote from "../../images/properties/mobile/banknote.png";
 import Calendar from "../../images/properties/mobile/calendar.png";
 import Cube from "../../images/properties/mobile/cube.png";
-import FilterIcon from "../../images/properties/mobile/icon-filter.png";
 
 const Filter: React.FC = () => {
   return (
@@ -25,33 +24,59 @@ const Filter: React.FC = () => {
       </div>
       <section className="flex flex-col gap-[2rem] p-[2rem] rounded-[12px] bg-[#1a1a1a] mt-[2rem]">
         <div>
-          <input
-            disabled
-            placeholder="Location"
-            className="text-[1.4rem] font-medium leading-[1.5] text-[#999]"
-          />
+          <select name="location" id="location">
+            <option value="Location" disabled selected>
+              Location
+            </option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
           <img src={Location} alt="Location" />
-          <img src={FilterIcon} alt="Arrow" />
         </div>
         <div>
-          <input disabled placeholder="Property Type" />
+          <select name="type" id="type">
+            <option value="Property Type" disabled selected>
+              Property Type
+            </option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
           <img src={Home} alt="Home" />
-          <img src={FilterIcon} alt="Arrow" />
         </div>
         <div>
-          <input type="number" placeholder="Pricing Range" />
-          <img src={Banknote} alt="Banknote" />
-          <img src={FilterIcon} alt="Arrow" />
+          <select name="price" id="price">
+            <option value="Pricing Range" defaultValue={"Pricing range"}>
+              Pricing Range
+            </option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+          <img src={Banknote} alt="Home" />
         </div>
         <div>
-          <input type="number" placeholder="Property Size" />
-          <img src={Cube} alt="Cube" />
-          <img src={FilterIcon} alt="Arrow" />
+          <select name="size" id="size">
+            <option value="Property Size" disabled selected>
+              Property Size
+            </option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+          <img src={Cube} alt="Home" />
         </div>
         <div>
-          <input disabled placeholder="Build Year" />
-          <img src={Calendar} alt="Calendar" />
-          <img src={FilterIcon} alt="Arrow" />
+          <select name="year" value="year">
+            <option value="Build Year" disabled selected>
+              Build Year
+            </option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+          <img src={Calendar} alt="Home" />
         </div>
       </section>
     </div>

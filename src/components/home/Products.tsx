@@ -89,7 +89,7 @@ const Products: React.FC<{
                       tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
             >
               <img
-                // src={item.images[0].image}
+                src={item.images[0].image}
                 alt="Home"
                 className="w-full rounded-[1rem] h-[21rem] object-cover tablet:h-[25.5rem]"
               />

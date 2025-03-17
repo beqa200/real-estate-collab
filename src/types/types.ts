@@ -8,7 +8,7 @@ export interface IRating {
     id: number;
     name: string;
     title: string
-    loaction: string;
+    location: string;
     testimonial: string;
     image: string;
     rating: number;

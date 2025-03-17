@@ -118,7 +118,7 @@ const Ratings: React.FC<{
                       {item.name}
                     </p>
                     <p className="title text-[1.4rem] font-medium text-[#999] tablet:text-[1.6rem] desktop:text-[1.8rem]">
-                      {item.loaction}
+                      {item.location}
                     </p>
                   </div>
                 </div>
