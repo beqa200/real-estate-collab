@@ -38,7 +38,6 @@ const Products: React.FC<{
       .get("http://104.248.242.53:8000/property/property/")
       .then((res) => {
         setProducts(res.data.results);
-        console.log(res.data.results);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -84,7 +83,7 @@ const Products: React.FC<{
         {products?.map((item: IProduct) => (
           <SwiperSlide>
             <div
-              key={item.title}
+              key={item.id}
               className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
                       tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
             >

@@ -8,7 +8,7 @@ import Cube from "../../images/properties/mobile/cube.png";
 
 const Filter: React.FC = () => {
   return (
-    <div className="w-[91.5%] mx-auto  mt-[4rem]">
+    <div className="w-[91.5%] mx-auto mt-[4rem]">
       <div
         className="h-[6.8rem] p-[1rem] bg-transparent border-1 border-[#262626] custom-shadow rounded-[12px]
                   flex items-center justify-between"
