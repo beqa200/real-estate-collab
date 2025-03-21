@@ -5,6 +5,8 @@ import { useState, useEffect } from "react";
 import BedroomImg from "../../images/home/bedroom.png";
 import BathroomImg from "../../images/home/bathroom.png";
 import BuildingImg from "../../images/home/building.png";
+import LeftArrow from "../../images/home/arrow-left.png";
+import RightArrow from "../../images/home/arrow-right.png";
 
 const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -93,6 +95,37 @@ const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="after-box border-0 p-0">
+        <div className="flex items-baseline w-full justify-between">
+          <div
+            className={`arrow-container tablet:absolute tablet:right-21 desktop:right-28 `}
+            //   onClick={() => swiperRef.current?.slidePrev()}
+          >
+            <img src={LeftArrow} alt="Left arrow" className={` `} />
+          </div>
+          <p className="about tablet:text-[1.6rem] tablet:mt-0 desktop:text-[2rem] ">
+            <span className="text-white">1</span> of{" "}
+            <span>
+              {/* {!isLargeScreen && !isLargestScreen && products
+                  ? products.length
+                  : isLargeScreen && products
+                  ? products?.length - 2
+                  : null} */}{" "}
+              6
+            </span>
+          </p>
+          <div
+            className={`arrow-container tablet:absolute tablet:right-0 `}
+            //   onClick={() => swiperRef.current?.slideNext()}
+          >
+            <img
+              src={RightArrow}
+              alt="right arrow"
+              className={` tablet:w-[1.68rem] tablet:h-[1.44rem] desktop:w-[2.1rem] desktop:h-[1.8rem]`}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
