@@ -24,9 +24,13 @@ export default function Clients() {
             <div>
                 <h2></h2>
             </div>
-            <Swiper>
+            <Swiper
 
-                <div className="text-white grid grid-cols-1 md:grid-cols-2">
+                slidesPerView={1}
+                breakpoints={{ 1024: { slidesPerView: 2 } }}
+            >
+
+                <div className="text-white ">
                     {client.map((item) => (
                         <SwiperSlide>
 
