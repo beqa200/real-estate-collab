@@ -148,4 +148,28 @@ body {
     .select-itself {
         @apply ml-[5rem]
     }
+
+    .input-container {
+        @apply flex flex-col gap-[1rem]
+    }
+
+    .input-itself {
+        @apply w-full h-[5.2rem] rounded-[6px] bg-[#1a1a1a] border-1 border-[#262626] px-[2rem]
+    }
+
+    .label-text {
+        @apply text-[1.6rem] font-semibold leading-[1.5] text-white
+    }
+
+    .msg-placeholder {
+        @apply text-[1.4rem] font-medium leading-[1.43] text-[#666666]
+    }
+
+    .phone-call-and-email {
+        @apply absolute top-[1.8rem] left-[2rem]
+    }
+
+    .optional {
+        @apply w-[1rem] h-[1rem] bg-[#703bf7] rounded-[50%] absolute top-[2.1rem] left-[90%]
+    }
 }

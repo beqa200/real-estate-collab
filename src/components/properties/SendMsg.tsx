@@ -14,26 +14,55 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
       </p>
 
       <form className="rounded-[12px] p-[2rem] bg-transparent border-1 border-[#262626] mt-[4rem]">
-        <div>
-          <div>
-            <label htmlFor="name">First Name</label>
-            <input id="name" placeholder="Enter First Name" />
+        <div className="flex flex-col flex-wrap gap-[2rem]">
+          <div className="input-container">
+            <label className="label-text text-white" htmlFor="name">
+              First Name
+            </label>
+            <input
+              className="msg-placeholder input-itself"
+              id="name"
+              placeholder="Enter First Name"
+            />
           </div>
-          <div>
-            <label htmlFor="surname">Last Name</label>
-            <input id="surname" placeholder="Enter Last Name" />
+          <div className="input-container">
+            <label className="label-text" htmlFor="surname">
+              Last Name
+            </label>
+            <input
+              className="msg-placeholder input-itself"
+              id="surname"
+              placeholder="Enter Last Name"
+            />
           </div>
-          <div>
-            <label htmlFor="email">Email</label>
-            <input id="email" placeholder="Enter Your Email" />
+          <div className="input-container">
+            <label className="label-text" htmlFor="email">
+              Email
+            </label>
+            <input
+              className="msg-placeholder input-itself"
+              id="email"
+              placeholder="Enter Your Email"
+            />
           </div>
-          <div>
-            <label htmlFor="phone">Phone</label>
-            <input id="phone" placeholder="Enter Phone Number" />
+          <div className="input-container">
+            <label className="label-text" htmlFor="phone">
+              Phone
+            </label>
+            <input
+              className="msg-placeholder input-itself"
+              id="phone"
+              placeholder="Enter Phone Number"
+            />
           </div>
-          <div>
-            <label htmlFor="location">Preferred Location</label>
-            <select id="location">
+          <div className="input-container">
+            <label className="label-text" htmlFor="location">
+              Preferred Location
+            </label>
+            <select
+              id="location"
+              className="msg-placeholder input-itself w-full bg-[92%] bg-[#1a1a1a]"
+            >
               <option value="volvo" disabled>
                 Select Location
               </option>
@@ -42,9 +71,14 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
               <option value="audi">Audi</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="prop-type">Property Type</label>
-            <select id="prop-type">
+          <div className="input-container">
+            <label className="label-text" htmlFor="prop-type">
+              Property Type
+            </label>
+            <select
+              id="prop-type"
+              className="msg-placeholder input-itself w-full bg-[92%] bg-[#1a1a1a]"
+            >
               <option value="volvo" disabled>
                 Select Property Type
               </option>
@@ -53,9 +87,14 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
               <option value="audi">Audi</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="bathrooms-index">No. of Bathrooms</label>
-            <select id="bathrooms-index">
+          <div className="input-container">
+            <label className="label-text" htmlFor="bathrooms-index">
+              No. of Bathrooms
+            </label>
+            <select
+              id="bathrooms-index"
+              className="msg-placeholder input-itself w-full bg-[92%] bg-[#1a1a1a]"
+            >
               <option value="volvo" disabled>
                 Select no. of Bedrooms
               </option>
@@ -64,9 +103,14 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
               <option value="audi">Audi</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="bedrooms-index">No. of Bedrooms</label>
-            <select id="bedrooms-index">
+          <div className="input-container">
+            <label className="label-text" htmlFor="bedrooms-index">
+              No. of Bedrooms
+            </label>
+            <select
+              id="bedrooms-index"
+              className="msg-placeholder input-itself w-full bg-[92%] bg-[#1a1a1a]"
+            >
               <option value="volvo" disabled>
                 Select no. of Bedrooms
               </option>
@@ -75,9 +119,14 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
               <option value="audi">Audi</option>
             </select>
           </div>
-          <div>
-            <label htmlFor="budget">Budget</label>
-            <select id="budget">
+          <div className="input-container">
+            <label className="label-text" htmlFor="budget">
+              Budget
+            </label>
+            <select
+              id="budget"
+              className="msg-placeholder input-itself w-full bg-[92%] bg-[#1a1a1a]"
+            >
               <option value="volvo" disabled>
                 Select Budget
               </option>
@@ -86,29 +135,55 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
               <option value="audi">Audi</option>
             </select>
           </div>
-          <div>
-            <label>
+          <div className="input-container">
+            <label className="label-text flex flex-col">
               Preferred Contact Method
-              <div>
-                <input id="your-number" placeholder="Enter Your Number" />
-                <img src={PhoneCall} alt="Phone-call" />
-                <div></div>
+              <div className="relative mt-[1rem]">
+                <input
+                  className="msg-placeholder input-itself pl-[4.4rem]"
+                  id="your-number"
+                  placeholder="Enter Your Number"
+                />
+                <img
+                  src={PhoneCall}
+                  alt="Phone-call"
+                  className="phone-call-and-email"
+                />
+                <div className="optional"></div>
               </div>
-              <div>
-                <input id="your-email" placeholder="Enter Your Email" />
-                <img src={Email} alt="Emmail" />
-                <div></div>
+              <div className="relative mt-[1.6rem]">
+                <input
+                  className="msg-placeholder input-itself pl-[4.4rem]"
+                  id="your-email"
+                  placeholder="Enter Your Email"
+                />
+                <img
+                  src={Email}
+                  alt="Emmail"
+                  className="phone-call-and-email"
+                />
+                <div className="optional"></div>
               </div>
             </label>
           </div>
-          <div>
-            <label htmlFor="msg">Message</label>
-            <input id="msg" placeholder="Enter your Message here.." />
+          <div className="input-container">
+            <label className="label-text" htmlFor="msg">
+              Message
+            </label>
+            <input
+              className="msg-placeholder input-itself"
+              id="msg"
+              placeholder="Enter your Message here.."
+            />
           </div>
         </div>
         <div>
           <div>
-            <input type="checkbox" name="privacy-police" />
+            <input
+              className="msg-placeholder input-itself"
+              type="checkbox"
+              name="privacy-police"
+            />
             <p>
               I agree with <span>Terms of Use</span> and{" "}
               <span>Privacy Policy</span>
