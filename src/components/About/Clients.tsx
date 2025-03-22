@@ -20,9 +20,10 @@ export default function Clients() {
             .catch((err) => console.log(err))
     }, [])
     return (
-        <div className="max-w-[1200px] mx-auto ">
+        <div className="max-w-[1200px]  px-5 mx-auto ">
             <div>
-                <h2></h2>
+                <h2 className="text-[28px] front-bold text-white">Our Valued Clients</h2>
+                <p className="text-[#999999] max-w-[1100px] text-[16px]">At Estatein, we have had the privilege of working with a diverse range of clients across various industries. Here are some of the clients we've had the pleasure of serving</p>
             </div>
             <Swiper
 
