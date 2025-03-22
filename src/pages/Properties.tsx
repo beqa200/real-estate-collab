@@ -3,6 +3,7 @@ import Filter from "../components/properties/Filter";
 import ResultProducts from "../components/properties/ResultProducts";
 import Stars from "../images/home/stars.png";
 import SendMsg from "../components/properties/SendMsg";
+import StartToday from "../components/properties/StartToday";
 
 const Properties: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Properties: React.FC = () => {
       <Filter />
       <ResultProducts stars={Stars} />
       <SendMsg stars={Stars} />
+      <StartToday />
     </>
   );
 };
