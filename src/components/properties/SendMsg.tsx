@@ -178,18 +178,19 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
           </div>
         </div>
         <div>
-          <div>
-            <input
-              className="msg-placeholder input-itself"
-              type="checkbox"
-              name="privacy-police"
-            />
-            <p>
-              I agree with <span>Terms of Use</span> and{" "}
-              <span>Privacy Policy</span>
+          <div className="flex gap-[0.6rem] mt-[3rem]">
+            <input type="checkbox" name="privacy-police" />
+            <p className="text-[1.4rem] font-medium leading-[1.5] text-[#999]">
+              I agree with <span className="underline">Terms of Use</span> and
+              <span className="underline ml-[0.4rem]">Privacy Policy</span>
             </p>
           </div>
-          <button>Send Your Message</button>
+          <button
+            className="w-full h-[5.2rem] rounded-[6px] bg-[#703bf7]
+                      text-[1.4rem] font-medium leading-[1.71] text-white mt-[2.15rem]"
+          >
+            Send Your Message
+          </button>
         </div>
       </form>
     </div>
