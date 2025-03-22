@@ -180,4 +180,8 @@ body {
     .optional {
         @apply w-[1rem] h-[1rem] bg-[#703bf7] rounded-[50%] absolute top-[2.1rem] left-[90%]
     }
+
+    .custom-prop-container {
+        @apply py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626]
+    }
 }
