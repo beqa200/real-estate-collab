@@ -1,7 +1,7 @@
 import axios from "axios"
-import { Grid, Zap } from "lucide-react"
+import { ArrowLeft, ArrowRight, Grid, Zap } from "lucide-react"
 import { useEffect, useState } from "react"
-
+import { useRef } from "react"
 import { SwiperSlide, Swiper } from "swiper/react"
 
 interface Clients {
@@ -13,12 +13,14 @@ interface Clients {
     year: string
 }
 export default function Clients() {
+    const [pageCounter, setPageCounter] = useState(1)
     const [client, setClient] = useState<Clients[]>([])
     useEffect(() => {
         axios.get('http://104.248.242.53:8000/about/clients/')
             .then((res) => setClient(res.data.results))
             .catch((err) => console.log(err))
     }, [])
+    const swiperRef: any = useRef(null)
     return (
         <div className="max-w-[1200px]  px-5 mx-auto ">
             <div>
@@ -26,7 +28,8 @@ export default function Clients() {
                 <p className="text-[#999999] max-w-[1100px] text-[16px]">At Estatein, we have had the privilege of working with a diverse range of clients across various industries. Here are some of the clients we've had the pleasure of serving</p>
             </div>
             <Swiper
-
+                onSlideChange={(swiper) => setPageCounter(swiper.activeIndex + 1)}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
                 slidesPerView={1}
                 breakpoints={{ 1024: { slidesPerView: 2 } }}
             >
@@ -70,6 +73,18 @@ export default function Clients() {
                     )
 
                     )}
+                </div>
+                <div className="text-white text-[30px]">
+                    <ArrowLeft
+                        className="cursor-pointer"
+                        onClick={() => swiperRef.current?.slidePrev()}
+                    />
+                    <ArrowRight
+                        className="cursor-pointer"
+                        onClick={() => swiperRef.current?.slideNext()}
+
+                    />
+                    <p>{pageCounter} of {client.length} </p>
                 </div>
 
 
