@@ -20,7 +20,7 @@ const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
   }, []);
 
   return (
-    <div className="w-[91.5%] mx-auto mt-[6.1rem]">
+    <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem]">
       <img src={stars} alt="Stars" />
       <h3 className="title">Discover a World of Possibilities</h3>
       <p className="about mt-[0.8rem]">

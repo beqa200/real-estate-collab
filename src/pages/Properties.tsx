@@ -12,7 +12,9 @@ const Properties: React.FC = () => {
       <Filter />
       <ResultProducts stars={Stars} />
       <SendMsg stars={Stars} />
-      <Suggestion />
+      <div className="max-w-[50rem] mx-auto">
+        <Suggestion />
+      </div>
     </>
   );
 };

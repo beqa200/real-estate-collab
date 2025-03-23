@@ -3,7 +3,7 @@ import Email from "../../images/properties/mobile/email.png";
 
 const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
   return (
-    <div className="w-[91.5%] mx-auto mt-[6.1rem]">
+    <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem]">
       <img src={stars} alt="Stars" />
       <h3 className="title">Let's Make it Happen</h3>
       <p className="about mt-[0.8rem]">

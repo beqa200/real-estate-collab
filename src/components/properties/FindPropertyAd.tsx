@@ -2,7 +2,7 @@ import React from "react";
 
 const FindPropertyAd: React.FC = () => {
   return (
-    <div className="custom-prop-container bg-custom-gradient">
+    <div className="custom-prop-container bg-custom-gradient mx-auto max-w-[50rem]">
       <h4 className="text-[2.8rem] font-semibold leading-[1.5] text-white">
         Find Your Dream Property
       </h4>
