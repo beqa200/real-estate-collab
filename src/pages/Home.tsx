@@ -60,7 +60,12 @@ const Home: React.FC = () => {
         isLargestScreen={isLargestScreen}
         setIsLargestScreen={setIsLargestScreen}
       />
-      <Suggestion />
+      <Suggestion
+        isLargeScreen={isLargeScreen}
+        setIsLargeScreen={setIsLargeScreen}
+        isLargestScreen={isLargestScreen}
+        setIsLargestScreen={setIsLargestScreen}
+      />
     </>
   );
 };

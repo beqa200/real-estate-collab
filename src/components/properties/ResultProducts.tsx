@@ -8,7 +8,19 @@ import BuildingImg from "../../images/home/building.png";
 import LeftArrow from "../../images/home/arrow-left.png";
 import RightArrow from "../../images/home/arrow-right.png";
 
-const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
+const ResultProducts: React.FC<{
+  stars: string;
+  isLargeScreen: boolean;
+  setIsLargeScreen: React.Dispatch<React.SetStateAction<boolean>>;
+  isLargestScreen: boolean;
+  setIsLargestScreen: React.Dispatch<React.SetStateAction<boolean>>;
+}> = ({
+  stars,
+  isLargeScreen,
+  setIsLargeScreen,
+  isLargestScreen,
+  setIsLargestScreen,
+}) => {
   const swiperRef: any = useRef(null);
   const [products, setProducts] = useState<IProduct[]>([]);
   useEffect(() => {
@@ -22,13 +34,6 @@ const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
 
   const [readMore, setReadMore] = useState<{ [key: number]: boolean }>({});
   const [pageCounter, setPageCounter] = useState<number>(1);
-
-  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(
-    window.innerWidth >= 1440
-  );
-  const [isLargestScreen, setIsLargestScreen] = useState<boolean>(
-    window.innerWidth >= 1920
-  );
 
   useEffect(() => {
     const handleResize = () => {
