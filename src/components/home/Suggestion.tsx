@@ -3,10 +3,15 @@ import RightDecoration from "../../images/home/decoration-right.png";
 
 const Suggestion: React.FC = () => {
   return (
-    <div className="w-full py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626] mt-[6.4rem] relative overflow-hidden">
+    <div
+      className="w-full py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626] mt-[6.4rem] relative overflow-hidden
+                tablet:flex tablet:items-center tablet:justify-between tablet:py-[6rem] tablet:px-[8rem]"
+    >
       <div className="z-1 sticky">
-        <h3 className="title">Start Your Real Estate Journey Today</h3>
-        <p className="about mt-[0.6rem]">
+        <h3 className="title tablet:text-[3.8rem]">
+          Start Your Real Estate Journey Today
+        </h3>
+        <p className="about mt-[0.6rem] tablet:mt-[1rem] tablet:w-[70%]">
           Your dream property is just a click away. Whether you're looking for a
           new home, a strategic investment, or expert real estate advice,
           Estatein is here to assist you every step of the way. Take the first
@@ -16,7 +21,8 @@ const Suggestion: React.FC = () => {
       </div>
       <button
         className="w-full h-[4.9rem] rounded-[8px] bg-[#703bf7]
-                  text-[1.4rem] font-medium leading-[1.5] text-white mt-[3rem] z-1 sticky"
+                  text-[1.4rem] font-medium leading-[1.5] text-white mt-[3rem] z-1 sticky
+                  tablet:w-[25%]"
       >
         Explore Properties
       </button>
