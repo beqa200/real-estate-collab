@@ -4,7 +4,7 @@ const FindPropertyAd: React.FC = () => {
   return (
     <div
       className="custom-prop-container bg-custom-gradient mx-auto max-w-[50rem]
-                tablet:text-[3.8rem] tablet:max-w-[280rem] tablet:pt-[10rem] tablet:pr-[20rem] tablet:pb-[13rem] pl-[8rem]"
+                tablet:text-[3.8rem] tablet:max-w-[280rem] tablet:pt-[10rem] tablet:pr-[8.5%] tablet:pb-[13rem] pl-[8rem]"
     >
       <h4
         className="text-[2.8rem] font-semibold leading-[1.5] text-white
