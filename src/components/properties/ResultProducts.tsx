@@ -20,10 +20,15 @@ const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
   }, []);
 
   return (
-    <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem]">
+    <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[9rem]">
       <img src={stars} alt="Stars" />
-      <h3 className="title">Discover a World of Possibilities</h3>
-      <p className="about mt-[0.8rem]">
+      <h3 className="title tablet:text-[3.8rem] desktop:text-[4.8rem]">
+        Discover a World of Possibilities
+      </h3>
+      <p
+        className="about mt-[0.6rem] tablet:text-[1.6rem] tablet:max-w-[60%] tablet:mt-[1rem] desktop:text-[1.8rem]
+                  desktop:mt-[1.4rem]"
+      >
         Our portfolio of properties is as diverse as your dreams. Explore the
         following categories to find the perfect property that resonates with
         your vision of home
