@@ -19,6 +19,8 @@ const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
       .catch((err) => console.log(err));
   }, []);
 
+  const [readMore, setReadMore] = useState<{ [key: number]: boolean }>({});
+
   return (
     <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[9rem]">
       <img src={stars} alt="Stars" />
@@ -63,8 +65,20 @@ const ResultProducts: React.FC<{ stars: string }> = ({ stars }) => {
                 {item.title}
               </h5>
               <p className="about mt-[0.2rem] tablet:text-[1.6rem] tablet:mt-[0.4rem] desktop:text-[2.4rem] destkop:mt-[0.6rem]">
-                {item.description}
-                <span className="text-white underline">Read More</span>
+                {!readMore[item.id]
+                  ? item.description.split(" ").slice(0, 14).join(" ")
+                  : item.description}
+                <span
+                  className="text-white underline ml-[0.6rem]"
+                  onClick={() =>
+                    setReadMore((prev) => ({
+                      ...prev,
+                      [item.id]: !prev[item.id],
+                    }))
+                  }
+                >
+                  {!readMore[item.id] ? "Read More" : "Read less"}
+                </span>
               </p>
               <div className="flex gap-[0.6rem] flex-wrap mt-[2rem] desktop:gap-[1rem] desktop:mt-[3rem]">
                 <div className="feature-container">
