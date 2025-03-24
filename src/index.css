@@ -174,7 +174,7 @@ body {
     }
 
     .input-container {
-        @apply flex flex-col gap-[1rem]
+        @apply flex flex-col gap-[1rem] tablet:gap-[1.4rem] tablet:w-[23%]
     }
 
     .input-itself {
