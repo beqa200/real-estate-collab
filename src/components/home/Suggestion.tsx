@@ -27,8 +27,8 @@ const Suggestion: React.FC<{
 
   return (
     <div
-      className="w-full py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626] mt-[6.4rem] relative overflow-hidden
-                tablet:flex tablet:items-center tablet:justify-between tablet:py-[6rem] tablet:px-[8rem]
+      className="w-full py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626] mx-auto mt-[6.4rem] relative overflow-hidden
+                max-w-[50rem] tablet:flex tablet:items-center tablet:justify-between tablet:py-[6rem] tablet:px-[8rem]
                 desktop:py-[10rem] desktop:px-[16.2rem]"
     >
       <div className="z-1 sticky">
@@ -62,7 +62,7 @@ const Suggestion: React.FC<{
       </div>
       <div
         className="absolute right-0 bottom-0
-                  "
+                  tablet:scale-x-[-1]"
       >
         <img
           src={
