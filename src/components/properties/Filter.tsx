@@ -6,15 +6,13 @@ import Banknote from "../../images/properties/mobile/banknote.png";
 import Calendar from "../../images/properties/mobile/calendar.png";
 import Cube from "../../images/properties/mobile/cube.png";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGeneral } from "../../contexts/context";
+import { useNavigate } from "react-router-dom";
 
 const Filter: React.FC = () => {
-  // const [locations, setLocations] = useState<string[]>([]);
-  // const [propTypes, setPropTypes] = useState<string[]>([]);
-  // const [years, setYears] = useState<number[]>([]);
-  // const [prices, setPrices] = useState<string[]>([]);
-  // const [sizes, setSizes] = useState<string[]>([]);
+  const navigate = useNavigate();
+
   const {
     locations,
     setLocations,
@@ -28,9 +26,11 @@ const Filter: React.FC = () => {
     setSizes,
   } = useGeneral();
 
+  const [selectedLocation, setSelectedLocation] = useState<string>("");
+
   useEffect(() => {
     axios
-      .get("http://104.248.242.53:8000/property/property-filter-options/")
+      .get(`http://104.248.242.53:8000/property/property-filter-options/?`)
       .then((res) => {
         setLocations(res.data.locations);
         setPropTypes(res.data.property_types);
@@ -42,6 +42,16 @@ const Filter: React.FC = () => {
         console.log(err);
       });
   }, []);
+
+  const queryParams = {
+    location: selectedLocation,
+    property_type: "",
+    year: "",
+    price: "",
+    size: "",
+  };
+
+  const queryString = new URLSearchParams(queryParams);
 
   return (
     <div className="w-[91.5%] mx-auto mt-[4rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[-6rem]">
@@ -58,6 +68,9 @@ const Filter: React.FC = () => {
         <div
           className="w-[6rem] h-[4.8rem] rounded-[8px] bg-[#703bf7] flex items-center justify-center
                     tablet:w-[14.8rem] tablet:h-[4.9rem] tablet:rounded-[8px] tablet:gap-[0.85rem]"
+          onClick={() => {
+            navigate(`?${queryString.toString()}`);
+          }}
         >
           <img src={Search} alt="Search" />
           <span className="hidden tablet:inline text-[1.4rem] font-medium leading-[1.5] text-white">
@@ -70,7 +83,13 @@ const Filter: React.FC = () => {
                   tablet:flex-row tablet:gap-[1.4rem] tablet:p-[1rem] tablet:rounded-[1.2rem] tablet:mt-0"
       >
         <div className="select-text select-container">
-          <select name="location" id="location" className="select-itself">
+          <select
+            name="location"
+            id="location"
+            className="select-itself"
+            onChange={(event) => setSelectedLocation(event.target.value)}
+            value={selectedLocation}
+          >
             <option value="Location" disabled selected>
               Location
             </option>
@@ -118,7 +137,7 @@ const Filter: React.FC = () => {
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
         <div className="select-text select-container">
-          <select name="year" value="year" className="select-itself">
+          <select name="year" id="year" className="select-itself">
             <option value="Build Year" disabled selected>
               Build Year
             </option>

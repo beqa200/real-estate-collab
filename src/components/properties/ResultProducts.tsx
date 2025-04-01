@@ -48,8 +48,8 @@ const ResultProducts: React.FC<{
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  // console.log(searchParams);
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("location"));
 
   return (
     <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[9rem]">
@@ -79,10 +79,7 @@ const ResultProducts: React.FC<{
       >
         {products?.map((item: IProduct) => (
           <SwiperSlide>
-            <NavLink
-              to={`/properties?userId=${item.title}`}
-              key={item.description}
-            >
+            <NavLink to={`/properties?${searchParams}`} key={item.description}>
               <div
                 key={item.id}
                 className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
