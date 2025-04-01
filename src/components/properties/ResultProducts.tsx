@@ -7,6 +7,8 @@ import BathroomImg from "../../images/home/bathroom.png";
 import BuildingImg from "../../images/home/building.png";
 import LeftArrow from "../../images/home/arrow-left.png";
 import RightArrow from "../../images/home/arrow-right.png";
+import { useSearchParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ResultProducts: React.FC<{
   stars: string;
@@ -23,6 +25,7 @@ const ResultProducts: React.FC<{
 }) => {
   const swiperRef: any = useRef(null);
   const [products, setProducts] = useState<IProduct[]>([]);
+
   useEffect(() => {
     axios
       .get("http://104.248.242.53:8000/property/property/")
@@ -45,6 +48,9 @@ const ResultProducts: React.FC<{
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  // console.log(searchParams);
+
   return (
     <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[9rem]">
       <img src={stars} alt="Stars" />
@@ -59,6 +65,7 @@ const ResultProducts: React.FC<{
         following categories to find the perfect property that resonates with
         your vision of home
       </p>
+
       <Swiper
         slidesPerView={1}
         spaceBetween={50}
@@ -72,69 +79,76 @@ const ResultProducts: React.FC<{
       >
         {products?.map((item: IProduct) => (
           <SwiperSlide>
-            <div
-              key={item.id}
-              className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
-                      tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
+            <NavLink
+              to={`/properties?userId=${item.title}`}
+              key={item.description}
             >
-              <img
-                src={item.images[0].image}
-                alt="Home"
-                className="w-full rounded-[1rem] h-[21rem] object-cover tablet:h-[25.5rem]"
-              />
-              <h5
-                className="title text-[1.8rem] mt-[1.6rem] tablet:text-[2rem] tablet:mt-[2rem]
-                          desktop:text-[2.4rem] desktop:mt-[3rem]"
+              <div
+                key={item.id}
+                className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
+                    tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
               >
-                {item.title}
-              </h5>
-              <p className="about mt-[0.2rem] tablet:text-[1.6rem] tablet:mt-[0.4rem] desktop:text-[2.4rem] destkop:mt-[0.6rem]">
-                {!readMore[item.id]
-                  ? item.description.split(" ").slice(0, 14).join(" ")
-                  : item.description}
-                <span
-                  className="text-white underline ml-[0.6rem]"
-                  onClick={() =>
-                    setReadMore((prev) => ({
-                      ...prev,
-                      [item.id]: !prev[item.id],
-                    }))
-                  }
+                <img
+                  src={item.images[0].image}
+                  alt="Home"
+                  className="w-full rounded-[1rem] h-[21rem] object-cover tablet:h-[25.5rem]"
+                />
+                <h5
+                  className="title text-[1.8rem] mt-[1.6rem] tablet:text-[2rem] tablet:mt-[2rem]
+                        desktop:text-[2.4rem] desktop:mt-[3rem]"
                 >
-                  {!readMore[item.id] ? "Read More" : "Read less"}
-                </span>
-              </p>
-              <div className="flex gap-[0.6rem] flex-wrap mt-[2rem] desktop:gap-[1rem] desktop:mt-[3rem]">
-                <div className="feature-container">
-                  <img src={BedroomImg} alt="Bedroom" />
-                  <span className="feature-text">{item.bedrooms}-Bedroom</span>
-                </div>
-                <div className="feature-container">
-                  <img src={BathroomImg} alt="Bathroom" />
-                  <span className="feature-text">
-                    {item.bathrooms}-Bathroom
+                  {item.title}
+                </h5>
+                <p className="about mt-[0.2rem] tablet:text-[1.6rem] tablet:mt-[0.4rem] desktop:text-[2.4rem] destkop:mt-[0.6rem]">
+                  {!readMore[item.id]
+                    ? item.description.split(" ").slice(0, 14).join(" ")
+                    : item.description}
+                  <span
+                    className="text-white underline ml-[0.6rem]"
+                    onClick={() =>
+                      setReadMore((prev) => ({
+                        ...prev,
+                        [item.id]: !prev[item.id],
+                      }))
+                    }
+                  >
+                    {!readMore[item.id] ? "Read More" : "Read less"}
                   </span>
+                </p>
+                <div className="flex gap-[0.6rem] flex-wrap mt-[2rem] desktop:gap-[1rem] desktop:mt-[3rem]">
+                  <div className="feature-container">
+                    <img src={BedroomImg} alt="Bedroom" />
+                    <span className="feature-text">
+                      {item.bedrooms}-Bedroom
+                    </span>
+                  </div>
+                  <div className="feature-container">
+                    <img src={BathroomImg} alt="Bathroom" />
+                    <span className="feature-text">
+                      {item.bathrooms}-Bathroom
+                    </span>
+                  </div>
+                  <div className="feature-container">
+                    <img src={BuildingImg} alt="Building" />
+                    <span className="feature-text">Villa</span>
+                  </div>
                 </div>
-                <div className="feature-container">
-                  <img src={BuildingImg} alt="Building" />
-                  <span className="feature-text">Villa</span>
+                <div className="flex justify-between mt-[2rem] desktop:mt-[3rem]">
+                  <div>
+                    <span className="about desktop:text-[1.8rem]">Price</span>
+                    <p className="title text-[1.8rem] tablet:text-[2rem] desktop:text-[2.4rem] desktop:mt-[0.2rem]">
+                      ${parseInt(item.price)}
+                    </p>
+                  </div>
+                  <button
+                    className="w-[20.2rem] h-[4.9rem] rounded-[8px] bg-[#703bf7] 
+                    text-[1.4rem] font-medium text-white desktop:h-[6.3rem] desktop:rounded-[1rem] desktop:text-[1.8rem]"
+                  >
+                    View Property Details
+                  </button>
                 </div>
               </div>
-              <div className="flex justify-between mt-[2rem] desktop:mt-[3rem]">
-                <div>
-                  <span className="about desktop:text-[1.8rem]">Price</span>
-                  <p className="title text-[1.8rem] tablet:text-[2rem] desktop:text-[2.4rem] desktop:mt-[0.2rem]">
-                    ${parseInt(item.price)}
-                  </p>
-                </div>
-                <button
-                  className="w-[20.2rem] h-[4.9rem] rounded-[8px] bg-[#703bf7] 
-                      text-[1.4rem] font-medium text-white desktop:h-[6.3rem] desktop:rounded-[1rem] desktop:text-[1.8rem]"
-                >
-                  View Property Details
-                </button>
-              </div>
-            </div>
+            </NavLink>
           </SwiperSlide>
         ))}
       </Swiper>

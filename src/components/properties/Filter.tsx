@@ -5,8 +5,30 @@ import Home from "../../images/properties/mobile/home.png";
 import Banknote from "../../images/properties/mobile/banknote.png";
 import Calendar from "../../images/properties/mobile/calendar.png";
 import Cube from "../../images/properties/mobile/cube.png";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Filter: React.FC = () => {
+  const [locations, setLocations] = useState<string[]>([]);
+  const [propTypes, setPropTypes] = useState<string[]>([]);
+  const [years, setYears] = useState<number[]>([]);
+  const [prices, setPrices] = useState<string[]>([]);
+  const [sizes, setSizes] = useState<string[]>([]);
+  useEffect(() => {
+    axios
+      .get("http://104.248.242.53:8000/property/property-filter-options/")
+      .then((res) => {
+        setLocations(res.data.locations);
+        setPropTypes(res.data.property_types);
+        setYears(res.data.build_years);
+        setPrices(res.data.price_ranges);
+        setSizes(res.data.size_ranges);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div className="w-[91.5%] mx-auto mt-[4rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[-6rem]">
       <div
@@ -38,9 +60,9 @@ const Filter: React.FC = () => {
             <option value="Location" disabled selected>
               Location
             </option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            {locations.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
           <img src={Location} alt="Location" className="select-img" />
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
@@ -50,9 +72,9 @@ const Filter: React.FC = () => {
             <option value="Property Type" disabled selected>
               Property Type
             </option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            {propTypes.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
           <img src={Home} alt="Home" className="select-img" />
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
@@ -62,9 +84,9 @@ const Filter: React.FC = () => {
             <option value="Pricing Range" defaultValue={"Pricing range"}>
               Pricing Range
             </option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            {prices.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
           <img src={Banknote} alt="Home" className="select-img" />
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
@@ -74,9 +96,9 @@ const Filter: React.FC = () => {
             <option value="Property Size" disabled selected>
               Property Size
             </option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            {sizes.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
           <img src={Cube} alt="Home" className="select-img" />
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
@@ -86,9 +108,9 @@ const Filter: React.FC = () => {
             <option value="Build Year" disabled selected>
               Build Year
             </option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            {years.map((item) => (
+              <option key={item}>{item}</option>
+            ))}
           </select>
           <img src={Calendar} alt="Home" className="select-img" />
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
