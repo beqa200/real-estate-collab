@@ -6,14 +6,28 @@ import Banknote from "../../images/properties/mobile/banknote.png";
 import Calendar from "../../images/properties/mobile/calendar.png";
 import Cube from "../../images/properties/mobile/cube.png";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { useGeneral } from "../../contexts/context";
 
 const Filter: React.FC = () => {
-  const [locations, setLocations] = useState<string[]>([]);
-  const [propTypes, setPropTypes] = useState<string[]>([]);
-  const [years, setYears] = useState<number[]>([]);
-  const [prices, setPrices] = useState<string[]>([]);
-  const [sizes, setSizes] = useState<string[]>([]);
+  // const [locations, setLocations] = useState<string[]>([]);
+  // const [propTypes, setPropTypes] = useState<string[]>([]);
+  // const [years, setYears] = useState<number[]>([]);
+  // const [prices, setPrices] = useState<string[]>([]);
+  // const [sizes, setSizes] = useState<string[]>([]);
+  const {
+    locations,
+    setLocations,
+    propTypes,
+    setPropTypes,
+    years,
+    setYears,
+    prices,
+    setPrices,
+    sizes,
+    setSizes,
+  } = useGeneral();
+
   useEffect(() => {
     axios
       .get("http://104.248.242.53:8000/property/property-filter-options/")
