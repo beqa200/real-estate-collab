@@ -27,6 +27,10 @@ const Filter: React.FC = () => {
   } = useGeneral();
 
   const [selectedLocation, setSelectedLocation] = useState<string>("");
+  const [selectedPropertyType, setSelectedPropertyType] = useState<string>("");
+  const [selectedYear, setSelectedYear] = useState<string>("");
+  const [selectedPrice, setSelectedPrice] = useState<string>("");
+  const [selectedSize, setSelectedSize] = useState<string>("");
 
   useEffect(() => {
     axios
@@ -45,10 +49,10 @@ const Filter: React.FC = () => {
 
   const queryParams = {
     location: selectedLocation,
-    property_type: "",
-    year: "",
-    price: "",
-    size: "",
+    property_type: selectedPropertyType,
+    year: selectedYear,
+    price: selectedPrice,
+    size: selectedPrice,
   };
 
   const queryString = new URLSearchParams(queryParams);
@@ -101,7 +105,13 @@ const Filter: React.FC = () => {
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
         <div className="select-text select-container">
-          <select name="type" id="type" className="select-itself">
+          <select
+            name="type"
+            id="type"
+            className="select-itself"
+            onChange={(event) => setSelectedPropertyType(event.target.value)}
+            value={selectedPropertyType}
+          >
             <option value="Property Type" disabled selected>
               Property Type
             </option>
@@ -113,7 +123,13 @@ const Filter: React.FC = () => {
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
         <div className="select-text select-container">
-          <select name="price" id="price" className="select-itself">
+          <select
+            name="price"
+            id="price"
+            className="select-itself"
+            onChange={(event) => setSelectedPrice(event.target.value)}
+            value={selectedPrice}
+          >
             <option value="Pricing Range" defaultValue={"Pricing range"}>
               Pricing Range
             </option>
@@ -125,7 +141,13 @@ const Filter: React.FC = () => {
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
         <div className="select-text select-container">
-          <select name="size" id="size" className="select-itself">
+          <select
+            name="size"
+            id="size"
+            className="select-itself"
+            onChange={(event) => setSelectedSize(event.target.value)}
+            value={selectedSize}
+          >
             <option value="Property Size" disabled selected>
               Property Size
             </option>
@@ -137,7 +159,13 @@ const Filter: React.FC = () => {
           <div className="w-[0.1rem] h-[2rem] bg-[#262626] absolute left-[4rem] top-[1.4rem]"></div>
         </div>
         <div className="select-text select-container">
-          <select name="year" id="year" className="select-itself">
+          <select
+            name="year"
+            id="year"
+            className="select-itself"
+            onChange={(event) => setSelectedYear(event.target.value)}
+            value={selectedYear}
+          >
             <option value="Build Year" disabled selected>
               Build Year
             </option>
