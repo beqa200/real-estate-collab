@@ -38,7 +38,6 @@ const ResultProducts: React.FC<{
   const [readMore, setReadMore] = useState<{ [key: number]: boolean }>({});
   const [pageCounter, setPageCounter] = useState<number>(1);
 
-  console.log(products);
   useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 1440);
@@ -50,11 +49,24 @@ const ResultProducts: React.FC<{
   }, []);
 
   const [searchParams] = useSearchParams();
-  const location = searchParams.get("location");
-  const prop_type = searchParams.get("property_type");
-  const year = searchParams.get("year");
-  const size = searchParams.get("size");
-  const price = searchParams.get("price");
+  const location = decodeURIComponent(searchParams.get("location") || "");
+  const prop_type = decodeURIComponent(searchParams.get("property_type") || "");
+  const year = decodeURIComponent(searchParams.get("year") || "");
+  const size = decodeURIComponent(searchParams.get("size") || "");
+  const price = decodeURIComponent(searchParams.get("price") || "");
+  let minPrice = null;
+  let maxPrice = null;
+
+  if (price.includes("-")) {
+    minPrice = price.replace(/\s+/g, "").split("-")[0].match(/\d+/g)?.join();
+
+    maxPrice = price.replace(/\s+/g, "").split("-")[1].match(/\d+/g)?.join();
+  } else {
+    minPrice = price.replace(/\s+/g, "").split("+")[0].match(/\d+/g)?.join();
+  }
+
+  const formatedMinPrice = Number(minPrice?.replace(/,/g, ""));
+  const formatedMaxPrice = Number(maxPrice?.replace(/,/g, ""));
 
   return (
     <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[9rem]">
@@ -83,7 +95,15 @@ const ResultProducts: React.FC<{
         onSlideChange={(swiper) => setPageCounter(swiper.activeIndex + 1)}
       >
         {products
-          ?.filter((item) => {})
+          ?.filter((item) => {
+            return (
+              item.build_year > Number(year) &&
+              item.location === location &&
+              Number(item.price) > formatedMinPrice &&
+              (formatedMaxPrice ? Number(item.price) < formatedMaxPrice : true)
+              // Number(item.price) < formatedMaxPrice
+            );
+          })
           .map((item: IProduct) => (
             <SwiperSlide>
               <NavLink
@@ -94,6 +114,10 @@ const ResultProducts: React.FC<{
                   key={item.id}
                   className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
                     tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
+                  onClick={() => {
+                    console.log(Number(item.price), formatedMinPrice);
+                    // console.log(minPrice, maxPrice);
+                  }}
                 >
                   <img
                     src={item.images[0].image}

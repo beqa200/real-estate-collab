@@ -29,4 +29,5 @@ export interface IProduct {
     location: string;
     property_type: number;
     size: number;
+    build_year: number
 }
