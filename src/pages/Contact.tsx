@@ -1,7 +1,12 @@
 import React from "react";
+import GetInTouch from "../components/contact/GetInTouch";
 
 const Contact: React.FC = () => {
-  return <>Contact</>;
+  return (
+    <>
+      <GetInTouch />
+    </>
+  );
 };
 
 export default Contact;
