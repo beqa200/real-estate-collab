@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Layout from "./components/Layout";
 import About from "./components/home/About";
 import Properties from "./pages/Properties";
-import Services from "./components/home/Services";
+import Services from "./pages/Services";
 import Contact from "./components/home/Contact";
 
 const router = createBrowserRouter([
