@@ -52,7 +52,7 @@ const Filter: React.FC = () => {
     property_type: selectedPropertyType,
     year: selectedYear,
     price: selectedPrice,
-    size: selectedPrice,
+    size: selectedSize,
   };
 
   const queryString = new URLSearchParams(queryParams);

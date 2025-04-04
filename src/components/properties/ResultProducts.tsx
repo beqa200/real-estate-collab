@@ -56,17 +56,26 @@ const ResultProducts: React.FC<{
   const price = decodeURIComponent(searchParams.get("price") || "");
   let minPrice = null;
   let maxPrice = null;
+  let minSize = null;
+  let maxSize = null;
 
   if (price.includes("-")) {
     minPrice = price.replace(/\s+/g, "").split("-")[0].match(/\d+/g)?.join();
-
     maxPrice = price.replace(/\s+/g, "").split("-")[1].match(/\d+/g)?.join();
   } else {
     minPrice = price.replace(/\s+/g, "").split("+")[0].match(/\d+/g)?.join();
   }
 
+  if (size.includes("-") && size) {
+    minSize = size.replace(/\s+/g, "").split("-")[0].match(/\d+/g)?.join();
+    maxSize = size.replace(/\s+/g, "").split("-")[1].match(/\d+/g)?.join();
+  } else {
+    minSize = size.replace(/\s+/g, "").split("+")[0].match(/\d+/g)?.join();
+  }
+
   const formatedMinPrice = Number(minPrice?.replace(/,/g, ""));
   const formatedMaxPrice = Number(maxPrice?.replace(/,/g, ""));
+  console.log(minSize, maxSize);
 
   return (
     <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem] tablet:max-w-[280rem] tablet:mt-[9rem]">
@@ -101,7 +110,6 @@ const ResultProducts: React.FC<{
               item.location === location &&
               Number(item.price) > formatedMinPrice &&
               (formatedMaxPrice ? Number(item.price) < formatedMaxPrice : true)
-              // Number(item.price) < formatedMaxPrice
             );
           })
           .map((item: IProduct) => (
@@ -115,7 +123,7 @@ const ResultProducts: React.FC<{
                   className="mt-[4rem] p-[2.4rem] rounded-[1.2rem] bg-[#141414] border-1 border-[#262626]
                     tablet:p-[3rem] tablet:mt-[6rem] desktop:p-[4rem] desktop:mt-[8rem]"
                   onClick={() => {
-                    console.log(Number(item.price), formatedMinPrice);
+                    console.log(item);
                     // console.log(minPrice, maxPrice);
                   }}
                 >
