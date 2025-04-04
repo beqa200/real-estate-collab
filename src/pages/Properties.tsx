@@ -9,7 +9,7 @@ import { useState } from "react";
 const Properties: React.FC = () => {
   const [pageCounter, setPageCounter] = useState<number>(1);
   const [isLargeScreen, setIsLargeScreen] = useState<boolean>(
-    window.innerWidth >= 1440
+    window.innerWidth >= 1280
   );
   const [isLargestScreen, setIsLargestScreen] = useState<boolean>(
     window.innerWidth >= 1920
