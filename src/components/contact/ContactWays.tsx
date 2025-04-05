@@ -6,44 +6,40 @@ import Arrow from "../../images/home/arrow.png";
 
 const ContactWays: React.FC = () => {
   return (
-    <section>
-      <div>
-        <div>
-          <div>
-            <img src={Mail} alt="Mail" />
-            <p>info@estatein.com</p>
-          </div>
-        </div>
-        <img src={Arrow} alt="Arrow" />
+    <section
+      className="w-full p-[1rem] bg-[#141414] border-1 border-[#262626]
+                grid grid-cols-2 gap-[1rem] get-in-touch-shadow"
+    >
+      <div className="contact-way-container">
+        <img src={Mail} alt="Mail" className="contact-img" />
+        <p className="opportunity-text">info@estatein.com</p>
+
+        <img src={Arrow} alt="Arrow" className="arrow-icon" />
       </div>
-      <div>
-        <div>
-          <div>
-            <img src={Call} alt="Call" />
-            <p>+1 (123) 456-7890</p>
-          </div>
-        </div>
-        <img src={Arrow} alt="Arrow" />
+      <div className="contact-way-container">
+        <img src={Call} alt="Call" className="contact-img" />
+        <p className="opportunity-text">+1 (123) 456-7890</p>
+
+        <img src={Arrow} alt="Arrow" className="arrow-icon" />
       </div>
-      <div>
-        <div>
-          <div>
-            <img src={Location} alt="Location" />
-            <p>Main Headquarters</p>
-          </div>
-        </div>
-        <img src={Arrow} alt="Arrow" />
+      <div className="contact-way-container">
+        <img src={Location} alt="Location" className="contact-img" />
+        <p className="opportunity-text">Main Headquarters</p>
+
+        <img src={Arrow} alt="Arrow" className="arrow-icon" />
       </div>
-      <div>
-        <div>
-          <div>
-            <img src={SocialNetworks} alt="Social Networks" />
-            <span>Instagram</span>
-            <span>Linkedin</span>
-            <span>Fcebook</span>
-          </div>
-        </div>
-        <img src={Arrow} alt="Arrow" />
+      <div className="contact-way-container">
+        <img
+          src={SocialNetworks}
+          alt="Social Networks"
+          className="contact-img"
+        />
+        <p className="flex flex-wrap justify-center gap-[1rem]">
+          <span className="opportunity-text">Instagram</span>
+          <span className="opportunity-text">Linkedin</span>
+          <span className="opportunity-text">Fcebook</span>
+        </p>
+        <img src={Arrow} alt="Arrow" className="arrow-icon" />
       </div>
     </section>
   );
