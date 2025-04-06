@@ -3,9 +3,13 @@ import { useGeneral } from "../../contexts/context";
 const Connect: React.FC = () => {
   const { Stars } = useGeneral();
   return (
-    <div>
+    <div className="w-[91.5%] mx-auto mt-[6.1rem]">
       <img src={Stars} alt="Stars" />
-      <h3>Let's Connect</h3>
+      <h3 className="title">Let's Connect</h3>
+      <p className="about mt-[0.8rem]">
+        We're excited to connect with you and learn more about your real estate
+        goals. Use the form below to get in touch with Estatein.
+      </p>
       <form>
         <label htmlFor="name">First Name</label>
         <input id="name" type="text" placeholder="Enter First Name" />
