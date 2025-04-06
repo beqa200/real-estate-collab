@@ -1,5 +1,6 @@
 import { useContext, createContext, ReactNode } from "react";
 import { useState } from "react";
+import Stars from "../images/home/stars.png";
 
 export const MainContext = createContext<
   | {
@@ -13,6 +14,7 @@ export const MainContext = createContext<
       setPrices: React.Dispatch<React.SetStateAction<string[]>>;
       sizes: string[];
       setSizes: React.Dispatch<React.SetStateAction<string[]>>;
+      Stars: string;
     }
   | undefined
 >(undefined);
@@ -36,6 +38,7 @@ export default function MainProvider({ children }: { children: ReactNode }) {
         setPrices,
         sizes,
         setSizes,
+        Stars,
       }}
     >
       {children}
