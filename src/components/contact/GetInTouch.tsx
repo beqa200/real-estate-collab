@@ -12,7 +12,7 @@ const GetInTouch: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1440);
+      setIsLargeScreen(window.innerWidth >= 1280);
       setIsLargestScreen(window.innerWidth >= 1920);
     };
 
@@ -29,7 +29,9 @@ const GetInTouch: React.FC = () => {
       <p className="about mt-[1rem]">
         {!isLargeScreen && !isLargestScreen
           ? "Welcome to Estatein's Contact Us page. We're here to assist you with any inquiries, requests, or feedback you may have."
-          : "Welcome to Estatein's Contact Us page. We're here to assist you with any inquiries, requests, or feedback you may have. Whether you're looking to buy or sell a property, explore investment opportunities, or simply want to connect, we're just a message away. Reach out to us, and let's start a conversation."}
+          : isLargeScreen
+          ? "Welcome to Estatein's Contact Us page. We're here to assist you with any inquiries, requests, or feedback you may have. Whether you're looking to buy or sell a property, explore investment opportunities, or simply want to connect, we're just a message away. Reach out to us, and let's start a conversation."
+          : ""}
       </p>
     </div>
   );
