@@ -3,7 +3,7 @@ import { useGeneral } from "../../contexts/context";
 const Connect: React.FC = () => {
   const { Stars } = useGeneral();
   return (
-    <div className="w-[91.5%] mx-auto mt-[6.1rem]">
+    <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem]">
       <img src={Stars} alt="Stars" />
       <h3 className="title">Let's Connect</h3>
       <p className="about mt-[0.8rem]">

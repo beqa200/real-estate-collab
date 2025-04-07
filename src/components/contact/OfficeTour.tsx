@@ -7,7 +7,7 @@ const OfficeTour: React.FC = () => {
   const { Stars } = useGeneral();
 
   return (
-    <div className="w-[91.5%] mt-[6.1rem] mx-auto">
+    <div className="w-[91.5%] mt-[6.1rem] mx-auto max-w-[50rem]">
       <img src={Stars} alt="Stars" />
       <h3 className="title">Discover Our Office Locations</h3>
       <p className="about mt-[0.8rem]">

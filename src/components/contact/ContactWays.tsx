@@ -8,7 +8,7 @@ const ContactWays: React.FC = () => {
   return (
     <section
       className="w-full p-[1rem] bg-[#141414] border-1 border-[#262626]
-                grid grid-cols-2 gap-[1rem] get-in-touch-shadow"
+                grid grid-cols-2 gap-[1rem] get-in-touch-shadow max-w-[50rem] mx-auto"
     >
       <div className="contact-way-container">
         <img src={Mail} alt="Mail" className="contact-img" />

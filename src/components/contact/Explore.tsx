@@ -12,7 +12,7 @@ const Explore: React.FC = () => {
   return (
     <div
       className="w-[91.5%] mx-auto bg-[url('././images/contact/abstract-background.png')] bg-no-repeat py-[2rem] p-[1.45rem] 
-                bg-cover rounded-[12px] bg-[#1a1a1a] border-1 border-[#262626] mt-[8rem] "
+                bg-cover rounded-[12px] bg-[#1a1a1a] border-1 border-[#262626] mt-[8rem] max-w-[50rem]"
     >
       <div className="grid grid-cols-2 gap-[1rem]">
         <img src={ExploreImg1} alt="Office" />
