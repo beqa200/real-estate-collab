@@ -7,17 +7,20 @@ const OfficeTour: React.FC = () => {
   const { Stars } = useGeneral();
 
   return (
-    <div className="w-[91.5%]">
+    <div className="w-[91.5%] mt-[6.1rem] mx-auto">
       <img src={Stars} alt="Stars" />
-      <h3>Discover Our Office Locations</h3>
-      <p>
+      <h3 className="title">Discover Our Office Locations</h3>
+      <p className="about mt-[0.8rem]">
         Estatein is here to serve you across multiple locations. Whether you're
         looking to meet our team.
       </p>
-      <div>
-        <div>All</div>
-        <div>Regional</div>
-        <div>International</div>
+      <div
+        className="flex items-center justify-center gap-[1rem] p-[1rem] rounded-[8px] 
+                  bg-[#1a1a1a] mt-[4rem]"
+      >
+        <div className="office-info-filter">All</div>
+        <div className="office-info-filter">Regional</div>
+        <div className="office-info-filter">International</div>
       </div>
       <div>
         <p>Main Headquarters</p>
