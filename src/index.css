@@ -49,6 +49,11 @@ body {
         width: 80%;
     }
 
+    /* custom blend mode */
+    .custom-blend {
+        mix-blend-mode: lighten;
+    }
+
     .select-img {
         position: absolute;
         top: 1.3rem;

@@ -24,7 +24,11 @@ const Explore: React.FC = () => {
         </div>
       </div>
       <div className="bg-transparent">
-        <img src={Stars} alt="Stars" className="mt-[2.5rem] bg-transparent" />
+        <img
+          src={Stars}
+          alt="Stars"
+          className="mt-[2.5rem] bg-transparent custom-blend"
+        />
       </div>
 
       <div>

@@ -4,7 +4,7 @@ const Connect: React.FC = () => {
   const { Stars } = useGeneral();
   return (
     <div className="w-[91.5%] mx-auto mt-[6.1rem] max-w-[50rem]">
-      <img src={Stars} alt="Stars" />
+      <img src={Stars} alt="Stars" className="custom-blend" />
       <h3 className="title">Let's Connect</h3>
       <p className="about mt-[0.8rem]">
         We're excited to connect with you and learn more about your real estate
