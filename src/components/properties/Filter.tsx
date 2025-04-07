@@ -90,7 +90,7 @@ const Filter: React.FC = () => {
           <select
             name="location"
             id="location"
-            className="select-itself"
+            className="select-itself  prop-select"
             onChange={(event) => setSelectedLocation(event.target.value)}
             value={selectedLocation}
           >
@@ -108,7 +108,7 @@ const Filter: React.FC = () => {
           <select
             name="type"
             id="type"
-            className="select-itself"
+            className="select-itself prop-select"
             onChange={(event) => setSelectedPropertyType(event.target.value)}
             value={selectedPropertyType}
           >
@@ -126,7 +126,7 @@ const Filter: React.FC = () => {
           <select
             name="price"
             id="price"
-            className="select-itself"
+            className="select-itself prop-select"
             onChange={(event) => setSelectedPrice(event.target.value)}
             value={selectedPrice}
           >
@@ -144,7 +144,7 @@ const Filter: React.FC = () => {
           <select
             name="size"
             id="size"
-            className="select-itself"
+            className="select-itself prop-select"
             onChange={(event) => setSelectedSize(event.target.value)}
             value={selectedSize}
           >
@@ -162,7 +162,7 @@ const Filter: React.FC = () => {
           <select
             name="year"
             id="year"
-            className="select-itself"
+            className="select-itself prop-select"
             onChange={(event) => setSelectedYear(event.target.value)}
             value={selectedYear}
           >
