@@ -110,15 +110,16 @@ const Connect: React.FC = () => {
         </div>
 
         <div className="input-container">
-          <div>
-            <input type="checkbox" />
-            <p>
-              I agree with <span>Terms of Use</span> and
-              <span>Privacy Policy</span>
+          <div className="flex gap-[0.6rem] mt-[3rem]">
+            <input type="checkbox" name="privacy-police2" />
+            <p className="text-[1.4rem] font-medium leading-[1.5] text-[#999]">
+              I agree with <span className="underline">Terms of Use</span> and
+              <span className="underline ml-[0.4rem]">Privacy Policy</span>
             </p>
-            I agree with Terms of Use and Privacy Policy
           </div>
-          <button type="submit">Send Your Message</button>
+          <button type="submit" className="send-btn">
+            Send Your Message
+          </button>
         </div>
       </form>
     </div>

@@ -191,13 +191,7 @@ const SendMsg: React.FC<{ stars: string }> = ({ stars }) => {
               <span className="underline ml-[0.4rem]">Privacy Policy</span>
             </p>
           </div>
-          <button
-            className="w-full h-[5.2rem] rounded-[6px] bg-[#703bf7]
-                      text-[1.4rem] font-medium leading-[1.71] text-white mt-[2.15rem]
-                      tablet:w-[19.1rem] tablet:text-[1.6rem]"
-          >
-            Send Your Message
-          </button>
+          <button className="send-btn">Send Your Message</button>
         </div>
       </form>
     </div>
