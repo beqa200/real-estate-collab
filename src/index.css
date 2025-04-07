@@ -278,4 +278,8 @@ body {
         @apply w-full h-[4.6rem] rounded-[8px] bg-[#703bf7] 
         text-[1.4rem] font-medium leading-[1.31] tracking-[-0.08px] text-white mt-[2.4rem]
     }
+
+    .contact-title {
+        @apply text-[2.8rem] font-semibold leading-[1.5] text-white tablet:text-[3.8rem]
+    }
 }

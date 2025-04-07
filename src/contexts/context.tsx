@@ -15,6 +15,10 @@ export const MainContext = createContext<
       sizes: string[];
       setSizes: React.Dispatch<React.SetStateAction<string[]>>;
       Stars: string;
+      isLargeScreen: boolean;
+      setIsLargeScreen: React.Dispatch<React.SetStateAction<boolean>>;
+      isLargestScreen: boolean;
+      setIsLargestScreen: React.Dispatch<React.SetStateAction<boolean>>;
     }
   | undefined
 >(undefined);
@@ -25,6 +29,13 @@ export default function MainProvider({ children }: { children: ReactNode }) {
   const [years, setYears] = useState<number[]>([]);
   const [prices, setPrices] = useState<string[]>([]);
   const [sizes, setSizes] = useState<string[]>([]);
+  const [isLargeScreen, setIsLargeScreen] = useState<boolean>(
+    window.innerWidth >= 1280
+  );
+  const [isLargestScreen, setIsLargestScreen] = useState<boolean>(
+    window.innerWidth >= 1920
+  );
+
   return (
     <MainContext.Provider
       value={{
@@ -39,6 +50,10 @@ export default function MainProvider({ children }: { children: ReactNode }) {
         sizes,
         setSizes,
         Stars,
+        isLargeScreen,
+        setIsLargeScreen,
+        isLargestScreen,
+        setIsLargestScreen,
       }}
     >
       {children}
