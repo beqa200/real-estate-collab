@@ -205,7 +205,7 @@ body {
     }
 
     .input-container {
-        @apply flex flex-col gap-[1rem] tablet:gap-[1.4rem] tablet:w-[23%]
+        @apply flex flex-col gap-[1rem] tablet:gap-[1.4rem]
     }
 
     .input-itself {
@@ -249,6 +249,7 @@ body {
 
     .connect-input {
         @apply h-[5.2rem] py-[1.6rem] pl-[2rem] rounded-[6px] bg-[#1a1a1a] border-1 border-[#262626]
+        tablet:w-full
     }
 
     .send-btn {
