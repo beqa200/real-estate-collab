@@ -8,7 +8,8 @@ const ContactWays: React.FC = () => {
   return (
     <section
       className="w-full p-[1rem] bg-[#141414] border-1 border-[#262626]
-                grid grid-cols-2 gap-[1rem] get-in-touch-shadow max-w-[50rem] mx-auto"
+                grid grid-cols-2 gap-[1rem] get-in-touch-shadow max-w-[50rem] mx-auto tablet:max-w-[280rem]
+                tablet:grid-cols-4"
     >
       <div className="contact-way-container">
         <img src={Mail} alt="Mail" className="contact-img" />
@@ -34,7 +35,7 @@ const ContactWays: React.FC = () => {
           alt="Social Networks"
           className="contact-img"
         />
-        <p className="flex flex-wrap justify-center gap-[1rem]">
+        <p className="flex flex-wrap justify-center gap-[1rem] tablet:gap-[1.5rem]">
           <span className="opportunity-text">Instagram</span>
           <span className="opportunity-text">Linkedin</span>
           <span className="opportunity-text">Fcebook</span>

@@ -99,6 +99,10 @@ body {
         select {
             width: 75%;
         }
+
+        .get-in-touch-shadow {
+            box-shadow: 0 0 0 6px #191919
+        }
     }
   }
 
@@ -226,7 +230,7 @@ body {
     /* Styles for the contact page */
 
     .contact-img{
-        @apply w-[4.8rem] h-[4.8rem] bg-cover
+        @apply w-[4.8rem] h-[4.8rem] bg-cover tablet:w-[6rem] tablet:h-[6rem]
     }
 
     .arrow-icon {
@@ -235,7 +239,7 @@ body {
 
     .contact-way-container {
         @apply flex flex-col items-center justify-center gap-[1.4rem] rounded-[1rem] py-[2rem] px-[1.4rem] relative 
-        bg-[#1a1a1a] border-1 border-[#262626]
+        bg-[#1a1a1a] border-1 border-[#262626] tablet:py-[3rem] tablet:px-[1.6rem] tablet:gap-[1.6rem]
     }
 
     .connect-input {
