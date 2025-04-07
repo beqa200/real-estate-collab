@@ -85,67 +85,6 @@ const OfficeTour: React.FC = () => {
           <button className="get-direction-btn">Get Direction</button>
         </div>
       </div>
-      {/* <div className="office-type-container">
-        <p className="office-type">Main Headquarters</p>
-        <h5 className="office-location">
-          123 Estatein Plaza, City Center, Metropolis
-        </h5>
-        <p className="office-type text-[#999] mt-[0.8rem]">
-          Our main headquarters serve as the heart of Estatein. Located in the
-          bustling city center, this is where our core team of experts operates,
-          driving the excellence and innovation that define us.
-        </p>
-        <section className="contacts-container">
-          <div className="contact-container">
-            <img src={Email} alt="Email" />
-            <span className="office-type tracking-normal">
-              info@estatein.com
-            </span>
-          </div>
-          <div className="contact-container">
-            <img src={PhoneCall} alt="Phone call" />
-            <span className="office-type tracking-normal">
-              +1 (123) 456-7890
-            </span>
-          </div>
-          <div className="contact-container">
-            <img src={Location} alt="Location" />
-            <span className="office-type tracking-normal">Metropolis</span>
-          </div>
-        </section>
-        <button className="get-direction-btn">Get Direction</button>
-      </div>
-      <div className="office-type-container">
-        <p className="office-type">Regional Offices</p>
-        <h5 className="office-location">
-          456 Urban Avenue, Downtown District, Metropolis
-        </h5>
-        <p className="office-type text-[#999] mt-[0.8rem]">
-          Estatein's presence extends to multiple regions, each with its own
-          dynamic real estate landscape. Discover our regional offices, staffed
-          by local experts who understand the nuances of their respective
-          markets.
-        </p>
-        <section className="contacts-container">
-          <div className="contact-container">
-            <img src={Email} alt="Email" />
-            <span className="office-type tracking-normal">
-              info@estatein.com
-            </span>
-          </div>
-          <div className="contact-container">
-            <img src={PhoneCall} alt="Phone call" />
-            <span className="office-type tracking-normal">
-              +1 (123) 628-7890
-            </span>
-          </div>
-          <div className="contact-container">
-            <img src={Location} alt="Location" />
-            <span className="office-type tracking-normal">Metropolis</span>
-          </div>
-        </section>
-        <button className="get-direction-btn">Get Direction</button>
-      </div> */}
     </div>
   );
 };
