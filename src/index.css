@@ -252,4 +252,30 @@ body {
         @apply w-full h-[4.9rem] rounded-[8px] border-1 border-[#262626] flex justify-center items-center
         text-[1.4rem] font-medium leading-[1.5] text-white
     }
+
+    .office-type-container {
+        @apply p-[2.4rem] rounded-[8px] border-1 border-[#262626] bg-[#141414]
+    }
+
+    .office-type {
+        @apply text-[1.4rem] font-medium leading-[1.5] tracking-[-0.08px] text-white
+    }
+
+    .office-location {
+        @apply text-[2rem] font-semibold leading-[1.5] text-white
+    }
+
+    .contacts-container {
+        @apply flex flex-wrap items-center gap-[0.8rem] mt-[2.4rem]
+    }
+
+    .contact-container {
+        @apply h-[4.1rem] py-[1rem] px-[1.6rem] rounded-[28px] border-1 border-[#262626] bg-[#1a1a1a] 
+        flex items-center gap-[0.4rem]
+    }
+
+    .get-direction-btn {
+        @apply w-full h-[4.6rem] rounded-[8px] bg-[#703bf7] 
+        text-[1.4rem] font-medium leading-[1.31] tracking-[-0.08px] text-white mt-[2.4rem]
+    }
 }
