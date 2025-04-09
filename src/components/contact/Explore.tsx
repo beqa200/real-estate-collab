@@ -15,12 +15,12 @@ const Explore: React.FC = () => {
                 bg-cover rounded-[12px] bg-[#1a1a1a] border-1 border-[#262626] mt-[8rem] max-w-[50rem]"
     >
       <div className="grid grid-cols-2 gap-[1rem]">
-        <img src={ExploreImg1} alt="Office" />
-        <img src={ExploreImg2} alt="Staff" />
-        <img src={ExploreImg3} alt="Working" />
+        <img src={ExploreImg1} alt="Office" className="explore-img" />
+        <img src={ExploreImg2} alt="Staff" className="explore-img" />
+        <img src={ExploreImg3} alt="Working" className="explore-img" />
         <div className="flex gap-[1rem]">
-          <img src={ExploreImg4} alt="Staff" />
-          <img src={ExploreImg5} alt="Staff" />
+          <img src={ExploreImg4} alt="Staff" className="h-full" />
+          <img src={ExploreImg5} alt="Staff" className="h-full" />
         </div>
       </div>
       <div className="bg-transparent">
@@ -41,7 +41,11 @@ const Explore: React.FC = () => {
           </p>
         </div>
         <div className="w-full object-contain mt-[2rem]">
-          <img src={DealMaking} alt="Deal making" />
+          <img
+            src={DealMaking}
+            alt="Deal making"
+            className="w-full object-contain"
+          />
         </div>
       </div>
     </div>

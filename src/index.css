@@ -293,4 +293,8 @@ body {
     .contact-title {
         @apply text-[2.8rem] font-semibold leading-[1.5] text-white tablet:text-[3.8rem]
     }
+
+    .explore-img {
+        @apply w-full object-contain
+    }
 }

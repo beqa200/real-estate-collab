@@ -23,7 +23,7 @@ const GetInTouch: React.FC = () => {
   return (
     <div
       className="py-[5rem] px-[1.6rem] bg-get-in-touch-gradient border-b-1 border-[#262626] max-w-[50rem] mx-auto
-                tablet:max-w-[280rem] tablet:py-[10rem] tablet:pl-[8rem] tablet:pr-[20rem]"
+                tablet:max-w-[280rem] tablet:py-[10rem] tablet:pl-[5.2rem] tablet:pr-[20rem]"
     >
       <h1 className="contact-title">Get in Touch with Estatein</h1>
       <p className="about mt-[1rem]">
