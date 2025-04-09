@@ -265,6 +265,7 @@ body {
 
     .office-type-container {
         @apply p-[2.4rem] rounded-[8px] border-1 border-[#262626] bg-[#141414]
+        tablet:p-[4rem] 
     }
 
     .office-type {
@@ -272,11 +273,11 @@ body {
     }
 
     .office-location {
-        @apply text-[2rem] font-semibold leading-[1.5] text-white
+        @apply text-[2rem] font-semibold leading-[1.5] text-white mt-[4rem] tablet:text-[2.4rem] tablet:mt-[0.6rem]
     }
 
     .contacts-container {
-        @apply flex flex-wrap items-center gap-[0.8rem] mt-[2.4rem]
+        @apply flex flex-wrap items-center gap-[0.8rem] mt-[2.4rem] tablet:mt-[3rem]
     }
 
     .contact-container {
