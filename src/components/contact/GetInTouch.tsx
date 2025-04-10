@@ -26,7 +26,7 @@ const GetInTouch: React.FC = () => {
                 tablet:max-w-[280rem] tablet:py-[10rem] tablet:pl-[5.2rem] tablet:pr-[20rem]"
     >
       <h1 className="contact-title">Get in Touch with Estatein</h1>
-      <p className="about mt-[1rem]">
+      <p className="about mt-[1rem] desktop:mt-[1.4rem]">
         {!isLargeScreen && !isLargestScreen
           ? "Welcome to Estatein's Contact Us page. We're here to assist you with any inquiries, requests, or feedback you may have."
           : isLargeScreen

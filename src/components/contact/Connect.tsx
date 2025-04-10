@@ -1,5 +1,6 @@
 import { useGeneral } from "../../contexts/context";
 import { useEffect } from "react";
+import { useState } from "react";
 
 const Connect: React.FC = () => {
   const {
@@ -9,6 +10,17 @@ const Connect: React.FC = () => {
     isLargestScreen,
     setIsLargestScreen,
   } = useGeneral();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    inquiryType: "",
+    aboutUs: "",
+    msg: "",
+    agree: false,
+  });
 
   useEffect(() => {
     const handleResize = () => {

@@ -292,6 +292,7 @@ body {
 
     .contact-title {
         @apply text-[2.8rem] font-semibold leading-[1.5] text-white tablet:text-[3.8rem]
+        desktop:text-[4.8rem]
     }
 
     .explore-img {
