@@ -31,3 +31,14 @@ export interface IProduct {
     size: number;
     build_year: number
 }
+
+export type TFormData = {
+    first_name: string;
+    last_name: string;
+    email: string;
+    phone: string;
+    inquiry_type: string;
+    heard_about: string;
+    message: string;
+    agree_to_terms: boolean
+}

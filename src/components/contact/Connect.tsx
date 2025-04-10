@@ -1,6 +1,8 @@
 import { useGeneral } from "../../contexts/context";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
+import { TFormData } from "../../types/types";
 
 const Connect: React.FC = () => {
   const {
@@ -11,16 +13,63 @@ const Connect: React.FC = () => {
     setIsLargestScreen,
   } = useGeneral();
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+  const [formData, setFormData] = useState<TFormData>({
+    first_name: "",
+    last_name: "",
     email: "",
     phone: "",
-    inquiryType: "",
-    aboutUs: "",
-    msg: "",
-    agree: false,
+    inquiry_type: "",
+    heard_about: "",
+    message: "",
+    agree_to_terms: false,
   });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value, type, checked } = e.target as {
+      name: string;
+      value: string;
+      type: string;
+      checked?: boolean;
+    };
+
+    setFormData((prev) => ({
+      ...prev,
+      [name as keyof TFormData]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://104.248.242.53:8000/contact/contact-messages/",
+        formData
+      );
+
+      if (response.status === 200) {
+        alert("Form sent successfully");
+      } else {
+        alert("Form has not sent");
+        setFormData({
+          first_name: "",
+          last_name: "",
+          email: "",
+          phone: "",
+          inquiry_type: "",
+          heard_about: "",
+          message: "",
+          agree_to_terms: false,
+        });
+      }
+    } catch (err) {
+      console.log("Form sending error:", err);
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,16 +93,22 @@ const Connect: React.FC = () => {
           : ""}
       </p>
 
-      <form className="p-[2rem] rounded-[12px] border-1 border-[#262626] mt-[4rem] tablet:p-[8rem]">
+      <form
+        onSubmit={handleSubmit}
+        className="p-[2rem] rounded-[12px] border-1 border-[#262626] mt-[4rem] tablet:p-[8rem]"
+      >
         <div className="grid gap-y-[2rem] tablet:gap-[3rem] tablet:grid-cols-3">
           <div className="input-container">
             <label className="label-text" htmlFor="name">
               First Name
             </label>
             <input
-              id="name"
+              name="first_name"
+              id="first_name"
               type="text"
               placeholder="Enter First Name"
+              value={formData.first_name}
+              onChange={handleChange}
               className="connect-input"
             />
           </div>
@@ -62,9 +117,12 @@ const Connect: React.FC = () => {
               Last name
             </label>
             <input
+              name="last_name"
               id="last-name"
               type="text"
               placeholder="Enter Last Name"
+              value={formData.last_name}
+              onChange={handleChange}
               className="connect-input"
             />
           </div>
@@ -73,9 +131,12 @@ const Connect: React.FC = () => {
               Email
             </label>
             <input
+              name="email"
               id="email"
               type="text"
               placeholder="Enter Your Email"
+              value={formData.email}
+              onChange={handleChange}
               className="connect-input"
             />
           </div>
@@ -84,9 +145,12 @@ const Connect: React.FC = () => {
               Phone
             </label>
             <input
+              name="phone"
               id="phone"
               type="number"
               placeholder="Enter Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
               className="connect-input"
             />
           </div>
@@ -95,8 +159,11 @@ const Connect: React.FC = () => {
               Inquiry Type
             </label>
             <select
+              name="inquiry-type"
               id="inquiry-type"
               className="connect-input prop-select msg-placeholder"
+              value={formData.inquiry_type}
+              onChange={handleChange}
               style={{
                 width: "100%",
                 backgroundColor: "#1a1a1a",
@@ -116,7 +183,10 @@ const Connect: React.FC = () => {
               How Did You Hear About Us?
             </label>
             <select
-              id="info-about-us"
+              name="heard-about"
+              id="heard-about"
+              value={formData.heard_about}
+              onChange={handleChange}
               className="connect-input prop-select msg-placeholder"
               style={{ width: "100%", backgroundColor: "#1a1a1a" }}
             >
@@ -130,13 +200,16 @@ const Connect: React.FC = () => {
             </select>
           </div>
           <div className="input-container tablet:col-span-full">
-            <label className="label-text" htmlFor="msg">
+            <label className="label-text" htmlFor="message">
               Message
             </label>
             <textarea
-              id="msg"
+              name="message"
+              id="message"
               rows={3}
               placeholder="Enter your Message here.."
+              value={formData.message}
+              onChange={handleChange}
               className="w-full rounded-[6px] py-[1.6rem] pl-[2rem] bg-[#1a1a1a] border-1 border-[#262626]
                         tablet:min-h-[12rem]"
             ></textarea>
@@ -144,7 +217,13 @@ const Connect: React.FC = () => {
         </div>
         <div className="input-container tablet:flex-row tablet:justify-between">
           <div className="flex gap-[0.6rem] mt-[3rem]">
-            <input type="checkbox" name="privacy-police2" />
+            <input
+              type="checkbox"
+              name="agree_to_terms"
+              id="agree_to_terms"
+              checked={formData.agree_to_terms}
+              onChange={handleChange}
+            />
             <p className="text-[1.4rem] font-medium leading-[1.5] text-[#999] tablet:text-[1.6rem]">
               I agree with <span className="underline">Terms of Use</span> and
               <span className="underline ml-[0.4rem]">Privacy Policy</span>
