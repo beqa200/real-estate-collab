@@ -42,3 +42,14 @@ export type TFormData = {
     message: string;
     agree_to_terms: boolean
 }
+
+
+export interface IOffice  {
+    address: string;
+    description: string;
+    email: string;
+    google_maps_link: string | null;
+    phone: string;
+    office_type: string;
+    title: string
+}

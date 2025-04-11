@@ -13,6 +13,10 @@ const Connect: React.FC = () => {
     setIsLargestScreen,
   } = useGeneral();
 
+  const [particularInquiryType, setParticularInquiryType] =
+    useState<string>("");
+  const [particularHeardAbout, setParticularHeardAbout] = useState<string>("");
+
   const [formData, setFormData] = useState<TFormData>({
     first_name: "",
     last_name: "",
@@ -155,12 +159,12 @@ const Connect: React.FC = () => {
             />
           </div>
           <div className="input-container">
-            <label className="label-text" htmlFor="inquiry-type">
+            <label className="label-text" htmlFor="inquiry_type">
               Inquiry Type
             </label>
             <select
-              name="inquiry-type"
-              id="inquiry-type"
+              name="inquiry_type"
+              id="inquiry_type"
               className="connect-input prop-select msg-placeholder"
               value={formData.inquiry_type}
               onChange={handleChange}
@@ -169,13 +173,13 @@ const Connect: React.FC = () => {
                 backgroundColor: "#1a1a1a",
               }}
             >
-              <option value="select-inquiry-type" selected disabled>
+              <option value="select-inquiry-type" disabled>
                 Select Inquiry Type
               </option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+              <option value="buying">Buying</option>
+              <option value="selling">Selling</option>
+              <option value="invstment">Investment</option>
+              <option value="other">Other</option>
             </select>
           </div>
           <div className="input-container">
@@ -183,20 +187,20 @@ const Connect: React.FC = () => {
               How Did You Hear About Us?
             </label>
             <select
-              name="heard-about"
-              id="heard-about"
+              name="heard_about"
+              id="heard_about"
               value={formData.heard_about}
               onChange={handleChange}
               className="connect-input prop-select msg-placeholder"
               style={{ width: "100%", backgroundColor: "#1a1a1a" }}
             >
-              <option value="select" selected disabled>
+              <option value="select" disabled>
                 Select
               </option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="mercedes">Mercedes</option>
-              <option value="audi">Audi</option>
+              <option value="google">Google</option>
+              <option value="social_media">Social media</option>
+              <option value="referral">ReferralOther</option>
+              <option value="other">Audi</option>
             </select>
           </div>
           <div className="input-container tablet:col-span-full">

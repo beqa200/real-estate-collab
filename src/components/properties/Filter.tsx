@@ -47,6 +47,8 @@ const Filter: React.FC = () => {
       });
   }, []);
 
+  console.log(propTypes);
+
   const queryParams = {
     location: selectedLocation,
     property_type: selectedPropertyType,
