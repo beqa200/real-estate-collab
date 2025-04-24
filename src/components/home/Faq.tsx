@@ -106,7 +106,7 @@ const Faq: React.FC<{
                       tablet:w-[10.7rem] tablet:mt-[2.4rem] desktop:w-[13.4rem] desktop:rounded-[1rem] desktop:mt-[3rem]
                       desktop:text-[1.8rem] desktop:tracking-[-0.11px]"
                 >
-                  Read More
+                  {!readMore[item.id] ? "Read More" : "Read Less"}
                 </button>
               </div>
             </div>

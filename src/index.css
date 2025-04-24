@@ -19,42 +19,96 @@ body {
 }
 
 @theme {
-    --breakpoint-tablet: 1440px;
+    --breakpoint-tablet: 1280px;
     --breakpoint-desktop: 1920px;
 }
 
 @layer utilities {
     .bg-custom-gradient {
       background-image: linear-gradient(143deg, #262626 -73%, rgba(38, 38, 38, 0) 19%); 
+      
+    }
+
+    .bg-get-in-touch-gradient {
+        background-image: linear-gradient(139deg, #262626 -62%, rgba(38, 38, 38, 0) 24%)
     }
 
     .custom-shadow {
         box-shadow: 0 0 0 4px #191919;
     }
 
-    select {
+    .get-in-touch-shadow {
+        box-shadow: 0 0 0 4px #191919
+    }
+
+    .prop-select {
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        background: url('./images//properties/mobile/arrow-down.png') no-repeat right;
+        background: url('./images//properties/mobile/arrow-down.png') no-repeat calc(100% - 5%);
         width: 80%;
+    }
+
+    /* custom blend mode */
+    .custom-blend {
+        mix-blend-mode: lighten;
     }
 
     .select-img {
         position: absolute;
         top: 1.3rem;
-        /* position: relative; */
     }
 
-    /* .select-img::before {
+    input[type="checkbox"] {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 4px;
+        appearance: none;
+        border: solid 1px #262626;
+        background-color: #1a1a1a;
+        accent-color: white;
+        position: relative;
+    }
+
+    input[type="checkbox"]:checked::before {
+        content: "✔";
+        font-size: 1.6rem;
+        color: white;
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 1.1rem;
-        height: 1.3rem;
-       
-        background-color: #fff;
-    } */
+        left: 0.5rem;
+    } 
+
+    textarea::placeholder {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.43;
+        color: #666;
+    }
+
+    .connect-input::placeholder {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.43;
+        color: #666;
+    }
+
+    @media (min-width: 1440px) {
+        .bg-custom-gradient {
+            background-image: linear-gradient(116deg, #262626 -28%, rgba(38, 38, 38, 0) 40%);
+        }
+
+        .custom-shadow {
+            box-shadow:  0 0 0 10px #191919;
+        }
+
+        select {
+            width: 75%;
+        }
+
+        .get-in-touch-shadow {
+            box-shadow: 0 0 0 6px #191919
+        }
+    }
   }
 
 @layer components  {
@@ -143,9 +197,104 @@ body {
     .select-container {
         @apply relative
         h-[5.2rem] bg-[#141414] border-1 border-[#262626] rounded-[8px] py-[1.2rem] px-[1.4rem]
+        tablet:w-[20%]
     }
 
     .select-itself {
         @apply ml-[5rem]
+    }
+
+    .input-container {
+        @apply flex flex-col gap-[1rem] tablet:gap-[1.4rem]
+    }
+
+    .input-itself {
+        @apply w-full h-[5.2rem] rounded-[6px] bg-[#1a1a1a] border-1 border-[#262626] px-[2rem]
+    }
+
+    .label-text {
+        @apply text-[1.6rem] font-semibold leading-[1.5] text-white
+    }
+
+    .msg-placeholder {
+        @apply text-[1.4rem] font-medium leading-[1.43] text-[#666666]
+    }
+
+    .phone-call-and-email {
+        @apply absolute top-[1.8rem] left-[2rem]
+    }
+
+    .optional {
+        @apply w-[1rem] h-[1rem] bg-[#703bf7] rounded-[50%] absolute top-[2.1rem] left-[90%]
+    }
+
+    .custom-prop-container {
+        @apply py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626]
+    }
+
+    /* Styles for the contact page */
+
+    .contact-img{
+        @apply w-[4.8rem] h-[4.8rem] bg-cover tablet:w-[6rem] tablet:h-[6rem]
+    }
+
+    .arrow-icon {
+        @apply w-[2.6rem] h-[2.6rem] bg-cover absolute top-[2rem] right-[1.95rem]
+    }
+
+    .contact-way-container {
+        @apply flex flex-col items-center justify-center gap-[1.4rem] rounded-[1rem] py-[2rem] px-[1.4rem] relative 
+        bg-[#1a1a1a] border-1 border-[#262626] tablet:py-[3rem] tablet:px-[1.6rem] tablet:gap-[1.6rem]
+    }
+
+    .connect-input {
+        @apply h-[5.2rem] py-[1.6rem] pl-[2rem] rounded-[6px] bg-[#1a1a1a] border-1 border-[#262626]
+        tablet:w-full
+    }
+
+    .send-btn {
+        @apply w-full h-[5.2rem] rounded-[6px] bg-[#703bf7]
+        text-[1.4rem] font-medium leading-[1.71] text-white mt-[2.15rem]
+        tablet:w-[19.1rem] tablet:text-[1.6rem]
+    }
+
+    .office-info-filter {
+        @apply w-full h-[4.9rem] rounded-[8px] border-1 border-[#262626] flex justify-center items-center
+        text-[1.4rem] font-medium leading-[1.5] text-white
+    }
+
+    .office-type-container {
+        @apply p-[2.4rem] rounded-[8px] border-1 border-[#262626] bg-[#141414]
+        tablet:p-[4rem] 
+    }
+
+    .office-type {
+        @apply text-[1.4rem] font-medium leading-[1.5] tracking-[-0.08px] text-white
+    }
+
+    .office-location {
+        @apply text-[2rem] font-semibold leading-[1.5] text-white mt-[4rem] tablet:text-[2.4rem] tablet:mt-[0.6rem]
+    }
+
+    .contacts-container {
+        @apply flex flex-wrap items-center gap-[0.8rem] mt-[2.4rem] tablet:mt-[3rem]
+    }
+
+    .contact-container {
+        @apply h-[4.1rem] py-[1rem] px-[1.6rem] rounded-[28px] border-1 border-[#262626] bg-[#1a1a1a] 
+        flex items-center gap-[0.4rem]
+    }
+
+    .get-direction-btn {
+        @apply w-full h-[4.6rem] rounded-[8px] bg-[#703bf7] 
+        text-[1.4rem] font-medium leading-[1.31] tracking-[-0.08px] text-white mt-[2.4rem] tablet:mt-[3rem]
+    }
+
+    .contact-title {
+        @apply text-[2.8rem] font-semibold leading-[1.5] text-white tablet:text-[3.8rem]
+    }
+
+    .explore-img {
+        @apply w-full h-full object-contain 
     }
 }

@@ -25,5 +25,9 @@ export interface IProduct {
         id: number;
         image: string;
         property: number;
-    }[];
+    }[],
+    location: string;
+    property_type: number;
+    size: number;
+    build_year: number
 }
