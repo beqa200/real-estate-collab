@@ -1,5 +1,6 @@
 
 import Achievements from "./About/Achievements";
+import Clients from "./About/Clients";
 import Experience from "./About/Experience";
 import OurJourney from "./About/OurJourney";
 
@@ -11,6 +12,7 @@ export default function About() {
             <OurValues />
             <Achievements />
             <Experience />
+            <Clients />
         </div>
 
     )

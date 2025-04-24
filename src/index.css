@@ -14,10 +14,102 @@ html {
 body {
     width: 100vw;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     background-color: #141414;
 }
 
+@theme {
+    --breakpoint-tablet: 1280px;
+    --breakpoint-desktop: 1920px;
+}
+
+@layer utilities {
+    .bg-custom-gradient {
+      background-image: linear-gradient(143deg, #262626 -73%, rgba(38, 38, 38, 0) 19%); 
+      
+    }
+
+    .bg-get-in-touch-gradient {
+        background-image: linear-gradient(139deg, #262626 -62%, rgba(38, 38, 38, 0) 24%)
+    }
+
+    .custom-shadow {
+        box-shadow: 0 0 0 4px #191919;
+    }
+
+    .get-in-touch-shadow {
+        box-shadow: 0 0 0 4px #191919
+    }
+
+    .prop-select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: url('./images//properties/mobile/arrow-down.png') no-repeat calc(100% - 5%);
+        width: 80%;
+    }
+
+    /* custom blend mode */
+    .custom-blend {
+        mix-blend-mode: lighten;
+    }
+
+    .select-img {
+        position: absolute;
+        top: 1.3rem;
+    }
+
+    input[type="checkbox"] {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 4px;
+        appearance: none;
+        border: solid 1px #262626;
+        background-color: #1a1a1a;
+        accent-color: white;
+        position: relative;
+    }
+
+    input[type="checkbox"]:checked::before {
+        content: "✔";
+        font-size: 1.6rem;
+        color: white;
+        position: absolute;
+        left: 0.5rem;
+    } 
+
+    textarea::placeholder {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.43;
+        color: #666;
+    }
+
+    .connect-input::placeholder {
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: 1.43;
+        color: #666;
+    }
+
+    @media (min-width: 1440px) {
+        .bg-custom-gradient {
+            background-image: linear-gradient(116deg, #262626 -28%, rgba(38, 38, 38, 0) 40%);
+        }
+
+        .custom-shadow {
+            box-shadow:  0 0 0 10px #191919;
+        }
+
+        select {
+            width: 75%;
+        }
+
+        .get-in-touch-shadow {
+            box-shadow: 0 0 0 6px #191919
+        }
+    }
+  }
 
 @layer components  {
     .button-text {
@@ -25,20 +117,22 @@ body {
     }
 
     .title {
-        @apply text-[2.8rem] font-semibold leading-[1.2] text-white xl:text-[4.6rem]
+        @apply text-[2.8rem] font-semibold leading-[1.2] text-white tablet:text-[4.6rem] desktop:text-[6rem]
     }
 
     .about {
-        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem] xl:text-[1.6rem] xl:mt-[2rem]
+        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999] mt-[1.6rem] tablet:text-[1.6rem] tablet:mt-[2rem]
+        desktop:text-[1.8rem] desktop:mt-[2.4rem]
     }
 
     .result-container {
         @apply flex flex-col items-center justify-center gap-[0.5rem] w-full h-[9.1rem] rounded-[0.8rem] bg-[#1a1a1a] 
-        border-solid border-[0.1rem] border-[#1a1a1a] xl:items-start xl:pl-[2.5%] xl:gap-[1rem]
+        border-solid border-[0.1rem] border-[#1a1a1a] tablet:items-start tablet:pl-[2.5%] tablet:gap-[1rem]
+        desktop:h-[9.9rem] desktop:rounded-[10px] desktop:gap-[2rem] desktop:pl-[4%]
     }
 
     .people-amount {
-        @apply text-[2.4rem] font-bold leading-[1.5rem] text-white
+        @apply text-[2.4rem] font-bold leading-[1.5rem] text-white desktop:text-[3rem]
     }
 
     .result {
@@ -46,31 +140,34 @@ body {
     }
 
     .opportunities-container {
-        @apply w-[95.5%] flex flex-wrap justify-center gap-[1rem] p-[1rem] rounded-[1.2rem] bg-[#141414] 
-        border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem] max-w-[50rem]
-        xl:w-full xl:max-w-[280rem] xl:mt-0 xl:ring-6
+        @apply w-[95.5%] flex flex-wrap justify-center items-center gap-[1rem] p-[1rem] rounded-[1.2rem] bg-[#141414] 
+        border-1 border-[#262626] ring-4 ring-[#191919] mx-auto mt-[4rem] max-w-[50rem] tablet:h-[18rem]
+        tablet:w-full tablet:max-w-[280rem] tablet:mt-0 tablet:ring-6 desktop:p-[2rem] desktop:gap-[2rem]
+        desktop:ring-10 desktop:h-[25.2rem]
     }
 
     .opportunity-container {
         @apply w-[48%] h-[14.4rem] flex flex-col items-center pt-[2rem] px-[1.4rem] gap-[1.4rem] rounded-[1rem]
-        border-1 border-[#262626] bg-[#1a1a1a] relative xl:w-[24.4%] 
+        border-1 border-[#262626] bg-[#1a1a1a] relative tablet:w-[24.4%] desktop:gap-[2rem] desktop:rounded-[12px]
+        desktop:w-[24.2%] desktop:h-full desktop:p-[4rem]
     }
 
     .opportunity-text {
-        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center xl:text-[1.6rem]
+        @apply text-[1.4rem] font-semibold leading-[1.5] text-[#fff] text-center tablet:text-[1.6rem]
+        desktop:text-[2rem]
     }
 
     .opportunity-img {
-        @apply xl:w-[6rem] xl:h-[6rem]
+        @apply tablet:w-[6rem] tablet:h-[6rem] desktop:w-[8.2rem] desktop:h-[8.2rem]
     }
 
     .arrow {
-        @apply absolute top-[2.5rem] right-[2.4rem]
+        @apply absolute top-[2.5rem] right-[2.4rem] desktop:w-[3.4rem] desktop:h-[3.4rem]
     }
 
     .feature-container {
         @apply w-[12.3rem] h-[3.3rem] flex justify-center items-center gap-[0.4rem] bg-[#1a1a1a] rounded-[28px] 
-        border-1 border-[#262626] xl:mt-[2.4rem] xl:w-[32%]
+        border-1 border-[#262626] tablet:mt-[2.4rem] tablet:w-[32%]
     }
 
     .feature-text {
@@ -78,8 +175,8 @@ body {
     }
 
     .arrow-container {
-        @apply w-[4.4rem] h-[4.4rem] rounded-[69px] bg-[#1a1a1a] border-1 border-[#262626]
-        flex justify-center items-center
+        @apply w-[4.4rem] h-[4.4rem] rounded-[69px] border-1 border-[#262626]
+        flex justify-center items-center desktop:w-[5.8rem] desktop:h-[5.8rem]
     }
 
     .after-box {
@@ -88,6 +185,116 @@ body {
 
     .after-box-btn {
         @apply w-[15.5rem] py-[1.4rem] rounded-[8px] bg-[#1a1a1a] border-1 border-[#262626] 
-        text-[1.4rem] font-semibold leading-[1.5] text-white
+        text-[1.4rem] font-semibold leading-[1.5] text-white desktop:w-[19.6rem] desktop:h-[6.3rem]
+        desktop:rounded-[10px] desktop:text-[1.8rem]
+    }
+
+    /* Styles for the properties page */
+    .select-text {
+        @apply text-[1.4rem] font-medium leading-[1.5] text-[#999]
+    }
+
+    .select-container {
+        @apply relative
+        h-[5.2rem] bg-[#141414] border-1 border-[#262626] rounded-[8px] py-[1.2rem] px-[1.4rem]
+        tablet:w-[20%]
+    }
+
+    .select-itself {
+        @apply ml-[5rem]
+    }
+
+    .input-container {
+        @apply flex flex-col gap-[1rem] tablet:gap-[1.4rem]
+    }
+
+    .input-itself {
+        @apply w-full h-[5.2rem] rounded-[6px] bg-[#1a1a1a] border-1 border-[#262626] px-[2rem]
+    }
+
+    .label-text {
+        @apply text-[1.6rem] font-semibold leading-[1.5] text-white
+    }
+
+    .msg-placeholder {
+        @apply text-[1.4rem] font-medium leading-[1.43] text-[#666666]
+    }
+
+    .phone-call-and-email {
+        @apply absolute top-[1.8rem] left-[2rem]
+    }
+
+    .optional {
+        @apply w-[1rem] h-[1rem] bg-[#703bf7] rounded-[50%] absolute top-[2.1rem] left-[90%]
+    }
+
+    .custom-prop-container {
+        @apply py-[5rem] px-[1.6rem] border-y-1 border-y-[#262626]
+    }
+
+    /* Styles for the contact page */
+
+    .contact-img{
+        @apply w-[4.8rem] h-[4.8rem] bg-cover tablet:w-[6rem] tablet:h-[6rem]
+    }
+
+    .arrow-icon {
+        @apply w-[2.6rem] h-[2.6rem] bg-cover absolute top-[2rem] right-[1.95rem]
+    }
+
+    .contact-way-container {
+        @apply flex flex-col items-center justify-center gap-[1.4rem] rounded-[1rem] py-[2rem] px-[1.4rem] relative 
+        bg-[#1a1a1a] border-1 border-[#262626] tablet:py-[3rem] tablet:px-[1.6rem] tablet:gap-[1.6rem]
+    }
+
+    .connect-input {
+        @apply h-[5.2rem] py-[1.6rem] pl-[2rem] rounded-[6px] bg-[#1a1a1a] border-1 border-[#262626]
+        tablet:w-full
+    }
+
+    .send-btn {
+        @apply w-full h-[5.2rem] rounded-[6px] bg-[#703bf7]
+        text-[1.4rem] font-medium leading-[1.71] text-white mt-[2.15rem]
+        tablet:w-[19.1rem] tablet:text-[1.6rem]
+    }
+
+    .office-info-filter {
+        @apply w-full h-[4.9rem] rounded-[8px] border-1 border-[#262626] flex justify-center items-center
+        text-[1.4rem] font-medium leading-[1.5] text-white
+    }
+
+    .office-type-container {
+        @apply p-[2.4rem] rounded-[8px] border-1 border-[#262626] bg-[#141414]
+        tablet:p-[4rem] 
+    }
+
+    .office-type {
+        @apply text-[1.4rem] font-medium leading-[1.5] tracking-[-0.08px] text-white
+    }
+
+    .office-location {
+        @apply text-[2rem] font-semibold leading-[1.5] text-white mt-[4rem] tablet:text-[2.4rem] tablet:mt-[0.6rem]
+    }
+
+    .contacts-container {
+        @apply flex flex-wrap items-center gap-[0.8rem] mt-[2.4rem] tablet:mt-[3rem]
+    }
+
+    .contact-container {
+        @apply h-[4.1rem] py-[1rem] px-[1.6rem] rounded-[28px] border-1 border-[#262626] bg-[#1a1a1a] 
+        flex items-center gap-[0.4rem]
+    }
+
+    .get-direction-btn {
+        @apply w-full h-[4.6rem] rounded-[8px] bg-[#703bf7] 
+        text-[1.4rem] font-medium leading-[1.31] tracking-[-0.08px] text-white mt-[2.4rem] tablet:mt-[3rem]
+    }
+
+    .contact-title {
+        @apply text-[2.8rem] font-semibold leading-[1.5] text-white tablet:text-[3.8rem]
+    }
+
+    .explore-img {
+        @apply w-full h-full object-contain 
     }
 }
