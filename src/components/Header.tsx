@@ -28,7 +28,7 @@ export default function Header() {
     }, [location])
 
     return (
-        <div className="bg-[#1A1A1A] relative">
+        <div className="bg-[#1A1A1A] max-w-[1200px] mx-auto relative">
             <div className="flex py-10 items-center justify-between lg:justify-around mx-10">
                 <div>
                     <Link to={'/'}>
