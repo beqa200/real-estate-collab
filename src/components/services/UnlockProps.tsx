@@ -6,7 +6,7 @@ interface BoxesProps {
 
 export default function UnlockProps({ text, icon, arrow }: BoxesProps) {
     return (
-        <div className="w-[380px] mx-auto mt-25 p-6 border border-[#262626] h-[160px] rounded-3xl">
+        <div className="w-[380px] mt-25 p-6 border border-[#262626] h-[160px] rounded-3xl">
             <div className="flex justify-center mt-5 items-center gap-5 text-white">
                 <div className="w-20 h-20">
                     <img src={icon} alt="icon" className="w-full h-full" />

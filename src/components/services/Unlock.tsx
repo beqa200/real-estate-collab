@@ -16,6 +16,17 @@ export default function Unlock() {
                 <UnlockProps text={'Selling a property requires more than just a listing; it demands a strategic marketing.'} icon={SecondOpportunityIcon} arrow={'Strategic Marketing'} />
                 <UnlockProps text={'Negotiating the best deal is an art, and our negotiation experts are masters of it.'} icon={ThirdOpportunityIcon} arrow={'Negotiation Wizardry'} />
             </div>
+            <div className='flex flex-col lg:flex-row'>
+                <UnlockProps text={'Negotiating the best deal is an art, and our negotiation experts are masters of it.'} icon={ThirdOpportunityIcon} arrow={'Negotiation Wizardry'} />
+                <div className='w-[800px] '>
+                    <div>
+                        <h2>Unlock the Value of Your Property Today</h2>
+                        <button>Learn more</button>
+                    </div>
+                    <p>Ready to unlock the true value of your property? Explore our Property Selling Service categories and let us help you achieve the best deal possible for your valuable asset.</p>
+                </div>
+            </div>
+
         </div>
     )
 }
