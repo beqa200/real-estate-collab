@@ -1,5 +1,8 @@
+import Text from '../components/services/Text'
 const Services: React.FC = () => {
-  return <>Services</>;
+  return <>
+    <Text />
+  </>;
 };
 
 export default Services;
